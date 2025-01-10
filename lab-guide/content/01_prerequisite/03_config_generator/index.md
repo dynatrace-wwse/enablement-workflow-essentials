@@ -2,7 +2,7 @@
 
 In your Dynatrace environment, open the Workflows App.
 
-Import the workflow 'Workflow Essentials - Config Generator' using the source file [`dt_wftpl_workflow_essentials_config_generator.yaml`](https://github.com/popecruzdt/dt-workflow-essentials/blob/main/assets/dt_wftpl_workflow_essentials_config_generator.yaml)
+Import the workflow 'Workflow Essentials - Config Generator' using the source file [Workflow Essentials - Config Generator](https://github.com/dynatrace-wwse/enablement-workflow-essentials/blob/main/lab-guide/assets/dt_wftpl_workflow_essentials_config_generator.yaml)
 
 Workflows are imported using the Upload button.
 
