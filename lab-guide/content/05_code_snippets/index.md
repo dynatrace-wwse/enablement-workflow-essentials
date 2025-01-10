@@ -2,7 +2,7 @@
 
 Code Snippets Notebook
 
-[Workflow Essentials Code Snippets](https://github.com/popecruzdt/dt-workflow-essentials/blob/main/assets/Workflow_Essentials_-_Code_Snippets.json)
+[Workflow Essentials Code Snippets](https://github.com/dynatrace-wwse/enablement-workflow-essentials/blob/main/lab-guide/assets/Workflow_Essentials_-_Code_Snippets.json)
 
 ![../../assets/images/05-workflow-essentials-code-snippets.png](../../assets/images/05-workflow-essentials-code-snippets.png)
 
