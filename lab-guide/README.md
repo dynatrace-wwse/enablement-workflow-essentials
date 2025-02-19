@@ -1,4 +1,4 @@
-# dt-workflow-essentials-lab
+# enablement-workflow-essentials
 dynatrace automation engine workflow essentials hands on lab
 
 ---
@@ -9,7 +9,19 @@ This lab only requires that you have admin access to a Dynatrace SaaS tenant wit
 
 ### Launching Lab Guide Locally
 
-Clone the repo
+Install Node.js 17+:
+
+[Download Node.js](https://nodejs.org/en/download)
+
+Clone the repo:
+```sh
+git clone https://github.com/dynatrace-wwse/enablement-workflow-essentials.git
+```
+
+Move in to the lab-guide directory:
+```sh
+cd lab-guide
+```
 
 Run the generator command:
 ```sh
