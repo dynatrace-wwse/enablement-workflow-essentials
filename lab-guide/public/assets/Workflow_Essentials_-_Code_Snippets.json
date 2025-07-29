@@ -17,7 +17,7 @@
             "foldings": [],
             "state": {
                 "input": {
-                    "value": "export default async function () {\n  \n  let PARAMETERS = {\n    // PARAMETER - description of the paramater\n    PARAMETER: \"VALUE\", // i.e. PARAMETER: \"VALUE\" - example value of the parameter\n  }\n  \n  return PARAMETERS;\n}",
+                    "value": "export default async function () {\n  \n  let PARAMETERS = {\n    // PARAMETER - description of the parameter\n    PARAMETER: \"VALUE\", // i.e. PARAMETER: \"VALUE\" - example value of the parameter\n  }\n  \n  return PARAMETERS;\n}",
                     "timeframe": {
                         "from": "now()-2h",
                         "to": "now()"
