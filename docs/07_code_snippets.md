@@ -1,4 +1,4 @@
---8<-- "snippets/send-bizevent/2-getting-started.js"
+--8<-- "snippets/send-bizevent/07_code_snippets.js"
 
 ## Code Snippets
 
@@ -355,8 +355,8 @@ export default async function () {
 
 ## Continue
 
-In the next section, we'll launch our Codespaces instance.
+In the next section, we'll cover clean Up.
 
 <div class="grid cards" markdown>
-- [Continue to Codespaces:octicons-arrow-right-24:](3-codespaces.md)
+- [Continue to Clean Up:octicons-arrow-right-24:](cleanup.md)
 </div>

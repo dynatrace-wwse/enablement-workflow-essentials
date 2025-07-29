@@ -1,4 +1,4 @@
---8<-- "snippets/send-bizevent/2-getting-started.js"
+--8<-- "snippets/send-bizevent/04_workflow_essentials.js"
 
 ## Workflow Essentials
 
@@ -476,8 +476,7 @@ Run the workflow and validate the results
 
 ## Continue
 
-In the next section, we'll launch our Codespaces instance.
-
+In the next section, we'll learn to ingest data and create alerts.
 <div class="grid cards" markdown>
-- [Continue to Codespaces:octicons-arrow-right-24:](3-codespaces.md)
+- [Continue to Ingest and Alert:octicons-arrow-right-24:](05_ingest_and_alert.md)
 </div>

@@ -1,4 +1,4 @@
---8<-- "snippets/send-bizevent/2-getting-started.js"
+--8<-- "snippets/send-bizevent/03_prerequisite.js"
 
 ## Prerequisites
 
@@ -78,8 +78,7 @@ As a result of the workflow, three configurations have been made to the Dynatrac
 
 ## Continue
 
-In the next section, we'll launch our Codespaces instance.
-
+In the next section, we'll Utilize essential Workflow techniques.
 <div class="grid cards" markdown>
-- [Continue to Codespaces:octicons-arrow-right-24:](3-codespaces.md)
+- [Continue to Workflow Essentials:octicons-arrow-right-24:](04_workflow_essentials.md)
 </div>

@@ -1,4 +1,4 @@
---8<-- "snippets/send-bizevent/2-getting-started.js"
+--8<-- "snippets/send-bizevent/06_third_party_integration.js"
 
 ## Third Party Integration
 
@@ -234,8 +234,8 @@ Third party integrations are available as Workflow Action Apps, which are availa
 
 ## Continue
 
-In the next section, we'll launch our Codespaces instance.
+In the next section, you'll find code snippets.
 
 <div class="grid cards" markdown>
-- [Continue to Codespaces:octicons-arrow-right-24:](3-codespaces.md)
+- [Continue to Code Snippets:octicons-arrow-right-24:](07_code_snippets.md)
 </div>

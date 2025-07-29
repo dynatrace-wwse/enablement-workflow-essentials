@@ -1,4 +1,4 @@
---8<-- "snippets/send-bizevent/2-getting-started.js"
+--8<-- "snippets/send-bizevent/05_ingest_and_alert.js"
 
 ## Ingest and Alert
 
@@ -518,8 +518,8 @@ After validating that the workflow execution was successful and the `js_dql_quer
 
 ## Continue
 
-In the next section, we'll launch our Codespaces instance.
+In the next section, we'll touch on thrid party integration.
 
 <div class="grid cards" markdown>
-- [Continue to Codespaces:octicons-arrow-right-24:](3-codespaces.md)
+- [Continue to Third Party Integration:octicons-arrow-right-24:](06_third_party_integration.md)
 </div>
