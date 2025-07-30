@@ -1,18 +1,14 @@
-# TODO: change site_name and repo_url to match your repo
 site_name: "Dynatrace Enablement Lab: Workflow Essentials"
 repo_name: "View Code on GitHub"
 repo_url: "https://github.com/dynatrace-wwse/enablement-workflow-essentials"
 nav:
   - '1. About': index.md
   - '2. Getting started': 2-getting-started.md
-  - '3. Prerequisites': 03_prerequisite.md
-  - '4. Workflow Essentials': 04_workflow_essentials.md
-  - '5. Ingest and Alert': 05_ingest_and_alert.md
-  - '6. Third Party Integration': 06_third_party_integration.md
-  - '7. Code Snippets': 07_code_snippets.md
-  - '8. Cleanup': cleanup.md
-  - '9. Resources': resources.md
-  - "10. What's next?": whats-next.md
+  - '3. Workflow Essentials': 03_workflow_essentials.md
+  - '4. Ingest and Alert': 04_ingest_and_alert.md
+  - '5. Third Party Integration': 05_third_party_integration.md
+  - '6. Code Snippets': 06_code_snippets.md
+  - '7. Cleanup': cleanup.md
 theme:
   name: material
   custom_dir: docs/overrides
