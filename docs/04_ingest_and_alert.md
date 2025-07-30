@@ -55,7 +55,7 @@ export default async function () {
   let PARAMETERS = {
 
     // EASYTRAVEL_URL - the URL to the easytravel rest API to search for journeys and receive JSON payload
-    EASYTRAVEL_URL: "http://aeb26f2507d934338baf67206067edef-612923892.us-east-1.elb.amazonaws.com/easytravel/rest/journeys/?match=Dallas&from=&to=", // i.e. EASYTRAVEL_URL: "http://aeb26f2507d934338baf67206067edef-612923892.us-east-1.elb.amazonaws.com/easytravel/rest/journeys/?match=Dallas&from=&to="
+    EASYTRAVEL_URL: "https://raw.githubusercontent.com/dynatrace-wwse/enablement-workflow-essentials/refs/heads/main/assets/app-data/easytravel_journey.json", // i.e. EASYTRAVEL_URL: "https://raw.githubusercontent.com/dynatrace-wwse/enablement-workflow-essentials/refs/heads/main/assets/app-data/easytravel_journey.json"
   
     // METRIC - the unique metric id to ingest a data point for the easytravel journey amount
     METRIC: "custom.workflow_essentials.easytravel.journey_amount", // i.e. METRIC: "custom.workflow_essentials.easytravel.journey_amount"

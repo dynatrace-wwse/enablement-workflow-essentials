@@ -4,7 +4,7 @@
 
 Code Snippets Notebook
 
-[Workflow Essentials Code Snippets](https://github.com/dynatrace-wwse/enablement-workflow-essentials/blob/main/lab-guide/assets/Workflow_Essentials_-_Code_Snippets.json){target=_blank}
+[Workflow Essentials Code Snippets](https://github.com/dynatrace-wwse/enablement-workflow-essentials/blob/main/assets/dynatrace/notebooks/Workflow_Essentials_-_Code_Snippets.json){target=_blank}
 
 ![./img/05-workflow-essentials-code-snippets.png](./img/05-workflow-essentials-code-snippets.png)
 
