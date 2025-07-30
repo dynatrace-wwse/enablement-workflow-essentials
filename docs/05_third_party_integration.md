@@ -1,6 +1,6 @@
---8<-- "snippets/send-bizevent/06_third_party_integration.js"
+--8<-- "snippets/send-bizevent/05_third_party_integration.js"
 
-## Third Party Integration
+# Third Party Integration
 
 Goal: When a Davis problem event is triggered, send a problem summary as a Slack message to a chosen Slack channel.
 
@@ -12,12 +12,12 @@ Goal: When a Davis problem event is triggered, send a problem summary as a Slack
     * The Slack for Workflows App provides an easy-to-use mechanism for sending messages to a Slack environment containing the data and context from Dynatrace
     * Leverage Jinja expressions to access Workflow action results and implement logic
 
-### Slack for Workflows
+## Slack for Workflows
 Your Dynatrace environment can integrate with a Slack workspace using Slack for Workflows. You can automate sending messages to Slack based on the events and schedules defined for your workflow.
 
-[Slack for Workflows Documentation](https://docs.dynatrace.com/docs/platform-modules/automations/workflows/actions/slack)
+[Slack for Workflows Documentation](https://docs.dynatrace.com/docs/platform-modules/automations/workflows/actions/slack){target=_blank}
 
-Setting up the Slack integration is straight forward and well documented.  In the interest of time and simplicity, the Slack integration has already been configured for this lab.
+Setting up the Slack integration is straight forward and well documented.
 
 ## Davis Problem Event Trigger
 
@@ -49,7 +49,7 @@ Additional custom filter query:
 matchesPhrase(event.name,"EasyTravel Journey Amount")
 ```
 
-![./img//04-workflow-trigger-type.png](./img//04-workflow-trigger-type.png)
+![./img/04-workflow-trigger-type.png](./img/04-workflow-trigger-type.png)
 
 ## Set Workflow Parameters
 
@@ -57,10 +57,10 @@ Click the `+` button to add a new action to the Workflow.
 
 Choose action: choose `Run JavaScript` action type.
 
-![./img//04-set-parameters-action-type.png](./img//04-set-parameters-action-type.png)
+![./img/04-set-parameters-action-type.png](./img/04-set-parameters-action-type.png)
 
 ---
-#### `js_set_parameters`
+### `js_set_parameters`
 Name:
 ```text
 js_set_parameters
@@ -93,11 +93,11 @@ Set the value of the missing variables:
 - SLACK_CHANNEL:
     * Use the channel name you have been provided (or have created)
 
-![./img//04-set-parameters-input.png](./img//04-set-parameters-input.png)
+![./img/04-set-parameters-input.png](./img/04-set-parameters-input.png)
 
 ## Slack Integration
 
-#### `slack_send_message`
+### `slack_send_message`
 Name:
 ```text
 slack_send_message
@@ -115,7 +115,7 @@ Click the `+` button to add a new action to the Workflow.
 
 Choose action: choose `Send message` action type from the Slack for Workflows section/app.
 
-![./img//04-send-message-action-type.png](./img//04-send-message-action-type.png)
+![./img/04-send-message-action-type.png](./img/04-send-message-action-type.png)
 
 Set the task name and description respectively.
 
@@ -198,7 +198,7 @@ Message:
 }
 ```
 
-![./img//04-send-message-input.png](./img//04-send-message-input.png)
+![./img/04-send-message-input.png](./img/04-send-message-input.png)
 
 Click on the task's `Conditions` tab.  Set the `Run this task if`: `js_set_parameters` is `success`
 
@@ -216,26 +216,26 @@ Set the `And custom condition was met`:
 {{ result("js_set_parameters")['SLACK_CHANNEL'] is defined }}
 ```
 
-![./img//04-send-message-conditions.png](./img//04-send-message-conditions.png)
+![./img/04-send-message-conditions.png](./img/04-send-message-conditions.png)
 
 ## Trigger Workflow Execution
 
 Open the Workflow Essentials - Ingest and Alert workflow from the previous exercise.  Run the workflow and validate the results.  A new problem event should have been created.
 
-![./img//04-ingest-and-alert-execution-results.png](./img//04-ingest-and-alert-execution-results.png)
+![./img/04-ingest-and-alert-execution-results.png](./img/04-ingest-and-alert-execution-results.png)
 
 Shortly after running the other workflow, the Workflow Essentials - Slack Integration workflow should have triggered as a result of the problem event.  Check the execution and validate the results.  Open the Slack channel and validate that the message contains the problem summary.
 
-![./img//04-slack-integration-execution-results.png](./img//04-slack-integration-execution-results.png)
+![./img/04-slack-integration-execution-results.png](./img/04-slack-integration-execution-results.png)
 
 Third party integrations are available as Workflow Action Apps, which are available in the Hub.
 
-![./img//04-workflow-action-apps-in-hub.png](./img//04-workflow-action-apps-in-hub.png)
+![./img/04-workflow-action-apps-in-hub.png](./img/04-workflow-action-apps-in-hub.png)
 
 ## Continue
 
-In the next section, you'll find code snippets.
+In the next section, you'll find a Notebook with code snippets to re-use in your Workflows.
 
 <div class="grid cards" markdown>
-- [Continue to Code Snippets:octicons-arrow-right-24:](07_code_snippets.md)
+- [Continue to Code Snippets:octicons-arrow-right-24:](06_code_snippets.md)
 </div>
