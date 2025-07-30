@@ -59,7 +59,7 @@ export default async function ({ execution_id }) {
 
 There are app environment utilities available so that static coding of these values within the workflow are not necessary.
 
-https://developer.dynatrace.com/develop/sdks/app-environment/
+[https://developer.dynatrace.com/develop/sdks/app-environment/](https://developer.dynatrace.com/develop/sdks/app-environment/){target=_blank}
 
 ```js
 import { getCurrentUserDetails } from '@dynatrace-sdk/app-environment';
@@ -146,11 +146,11 @@ Workflows can be used to retrieve external data from systems accessible via HTTP
 
 The `fetch()` API can be used to execute HTTP(S) calls and retrieve JSON responses.
 
-https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+[https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch){target=_blank}
 
 In order to access external systems, you must configure the domain in the allow list for outbound connections.
 
-https://developer.dynatrace.com/develop/app-functions/allow-outbound-connections/
+[https://developer.dynatrace.com/develop/app-functions/allow-outbound-connections/](https://developer.dynatrace.com/develop/app-functions/allow-outbound-connections/){target=_blank}
 
 For HTTPS calls, the URL/domain/host must have a valid signed SSL certificate or the call will fail.  There is no way to bypass the SSL certificate check due to data privacy and security standards.
 
@@ -184,11 +184,11 @@ Workflows can be used to send data (preferably JSON payload) to external systems
 
 The `fetch()` API can be used to execute HTTP(S) calls and send (JSON) payloads.
 
-https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+[https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch){target=_blank}
 
 In order to access external systems, you must configure the domain in the allow list for outbound connections.
 
-https://developer.dynatrace.com/develop/app-functions/allow-outbound-connections/
+[https://developer.dynatrace.com/develop/app-functions/allow-outbound-connections/](https://developer.dynatrace.com/develop/app-functions/allow-outbound-connections/){target=_blank}
 
 For HTTPS calls, the URL/domain/host must have a valid signed SSL certificate or the call will fail.  There is no way to bypass the SSL certificate check due to data privacy and security standards.
 
@@ -225,9 +225,10 @@ export default async function () {
 
 The SDK for TypeScript provides a TypeScript API for Dynatrace platform services and Dynatrace AppEngine functionality.
 
-https://developer.dynatrace.com/develop/sdks/
+[https://developer.dynatrace.com/develop/sdks/](https://developer.dynatrace.com/develop/sdks/){target=_blank}
 
 It consists of the following:
+
 * TypeScript packages focused on specific use cases to use Dynatrace platform functionality.
 * Modular clients for each Dynatrace platform service to reduce overhead on a specific use.
 
@@ -235,7 +236,7 @@ It consists of the following:
 
 While there is a DQL workflow action type, it may be beneficial to execute a DQL query from within a JS code action.  This can be accomplished using the `queryExecutionClient` from the `dynatrace-sdk/client-query` package.
 
-https://developer.dynatrace.com/develop/sdks/client-query/#queryexecute
+[https://developer.dynatrace.com/develop/sdks/client-query/#queryexecute](https://developer.dynatrace.com/develop/sdks/client-query/#queryexecute){target=_blank}
 
 ```js
 import { queryExecutionClient } from "@dynatrace-sdk/client-query";
@@ -270,7 +271,7 @@ Credentials can be accessed using `credentialVaultClient` from the `dynatrace-sd
 
 When a credential is obtained, it contains the `token` value or the `username` and `password` values respectively.
 
-https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#getcredentialsdetails
+[https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#getcredentialsdetails](https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#getcredentialsdetails){target=_blank}
 
 ```js
 import { credentialVaultClient } from '@dynatrace-sdk/client-classic-environment-v2';
@@ -296,11 +297,11 @@ Data ingest is a common use case for workflows.  Logs, traces, events, and metri
 
 Metric ingestion is possible with the `metricsClient` from the `dynatrace-sdk/client-classic-environment-v2` package.
 
-https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#ingest-1
+[https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#ingest-1](https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#ingest-1){target=_blank}
 
 The metric ingest utilizes the metric line protocol format:
 
-https://docs.dynatrace.com/docs/extend-dynatrace/extend-metrics/reference/metric-ingestion-protocol
+[https://docs.dynatrace.com/docs/extend-dynatrace/extend-metrics/reference/metric-ingestion-protocol](https://docs.dynatrace.com/docs/extend-dynatrace/extend-metrics/reference/metric-ingestion-protocol){target=_blank}
 
 ```js
 import { metricsClient } from "@dynatrace-sdk/client-classic-environment-v2";
@@ -325,11 +326,11 @@ Generating alerts (events, problem events) is a common use case for workflows.
 
 Events can be ingested/created using the `eventsClient` from the `dynatrace-sdk/client-classic-environment-v2` package.
 
-https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#createevent
+[https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#createevent](https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#createevent){target=_blank}
 
 There multiple event types that can be created via the `EventIngestEventType` class:
 
-https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#eventingesteventtype
+[https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#eventingesteventtype](https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#eventingesteventtype){target=_blank}
 
 ```js
 import { eventsClient, EventIngestEventType } from "@dynatrace-sdk/client-classic-environment-v2";
@@ -355,7 +356,7 @@ export default async function () {
 
 ## Continue
 
-In the next section, we'll cover clean Up.
+In the next section, we'll cover environment clean up.
 
 <div class="grid cards" markdown>
 - [Continue to Clean Up:octicons-arrow-right-24:](cleanup.md)

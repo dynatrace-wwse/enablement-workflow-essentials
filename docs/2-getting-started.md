@@ -8,6 +8,7 @@ You will need full administrator access to a Dynatrace SaaS tenant with a DPS li
 
 * Workflow Settings - Authorization
 * Slack for Workflows
+* Slack Bot (Slack App within Slack Workspace)
 * Config Generator
 * Data Generator
 
@@ -49,11 +50,21 @@ Validate that the App was installed into your environment.
 
 ![./img/01-slack-workflows-install.png](./img/01-slack-workflows-install.png)
 
+### Slack Bot (Slack App within Slack Workspace)
+
+This lab requires a Slack App within a Slack Workspace.  In order to use the Slack App, you'll need a Slack OAuth token in the format `xoxb-`.
+
+If you already have the token, you will provide it in the next step (Config Generator).
+
+If you do not already have a Slack App and token, follow the documentation steps to create one.
+
+[Slack App Documentation](https://docs.dynatrace.com/docs/analyze-explore-automate/workflows/actions/slack#slack-app){target=_blank}
+
 ### Config Generator
 
 In your Dynatrace environment, open the Workflows App.
 
-Import the workflow 'Workflow Essentials - Config Generator' using the source file [Workflow Essentials - Config Generator](https://github.com/dynatrace-wwse/enablement-workflow-essentials/blob/main/lab-guide/assets/dt_wftpl_workflow_essentials_config_generator.yaml)
+Import the workflow 'Workflow Essentials - Config Generator' using the source file [Workflow Essentials - Config Generator](https://github.com/dynatrace-wwse/enablement-workflow-essentials/blob/main/lab-guide/assets/dt_wftpl_workflow_essentials_config_generator.yaml){target=_blank}
 
 Workflows are imported using the Upload button.
 
@@ -84,7 +95,7 @@ As a result of the workflow, three configurations have been made to the Dynatrac
 
 In your Dynatrace environment, open the Workflows App.
 
-Import the workflow 'Workflow Essentials - Data Generator' using the source file [Workflow Essentials - Data Generator](https://github.com/dynatrace-wwse/enablement-workflow-essentials/blob/main/lab-guide/assets/dt_wftpl_workflow_essentials_data_generator.yaml)
+Import the workflow 'Workflow Essentials - Data Generator' using the source file [Workflow Essentials - Data Generator](https://github.com/dynatrace-wwse/enablement-workflow-essentials/blob/main/lab-guide/assets/dt_wftpl_workflow_essentials_data_generator.yaml){target=_blank}
 
 Workflows are imported using the Upload button.
 

@@ -212,7 +212,7 @@ Additionally, we only want this task to run if the `STATUS_URL` parameter is def
 3. {{ result("task_name")['result_attribute_name'] condition expression }}
 ```
 
-[Expression Reference Documentation](https://docs.dynatrace.com/docs/platform-modules/automations/workflows/reference)
+[Expression Reference Documentation](https://docs.dynatrace.com/docs/platform-modules/automations/workflows/reference){target=_blank}
 
 Set the `And custom condition was met`:
 ```js
