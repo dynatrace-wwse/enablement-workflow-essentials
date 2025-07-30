@@ -1,39 +1,63 @@
+author: Tony Pope-Cruz
+
 # enablement-workflow-essentials
 dynatrace automation engine workflow essentials hands on lab
 
----
+## Lab Overview
 
-### Prerequisites
+During this hands-on training, you will learn the foundation to be able to automate any relevant use case within Dynatrace using Workflow automations.
 
-This lab only requires that you have admin access to a Dynatrace SaaS tenant with AutomationEngine Workflows available (DPS)
+**Lab tasks:**
 
-### Launching Lab Guide Locally
+1. Parameters and Task Results
 
-Install Node.js 17+:
+    - Parameter Task – define parameters/variables that will be used by subsequent tasks
+    - Parameter Task Output – return parameters for subsequent tasks
+    - Accessing Parameter Task Results – access the parameters from result of the task
 
-[Download Node.js](https://nodejs.org/en/download)
+2. Fetch API
 
-Clone the repo:
-```sh
-git clone https://github.com/dynatrace-wwse/enablement-workflow-essentials.git
-```
+    - HTTP GET (Dynatrace Status.io) – bring external data into Dynatrace workflows
+    - HTTP POST (Webhook.Site) – send data to external systems from Dynatrace workflows
 
-Move in to the lab-guide directory:
-```sh
-cd lab-guide
-```
+3. Looping Tasks
 
-Run the generator command:
-```sh
-node bin/generator.js
-```
+    - DQL Query – execute a DQL query that returns multiple records/rows
+    - Looping Over Results – perform logic against each DQL record/row
 
-Run the server command:
-```sh
-node bin/server.js
-```
+4. Credential Vault
 
-Open the URL in your browser:
-```text
-http://localhost:3000
-```
+    - Access an API token from the Credential Vault using the Dynatrace SDK
+
+5. Metric Ingest
+
+    - Retrieve data from an external system using HTTP GET
+    - Ingest retrieved data point using the Dynatrace API with API token (not optimal)
+    - Ingest retrieved data point using the Dynatrace SDK (optimal)
+
+6. Event Ingest
+
+    - Query ingested metric data point using DQL
+    - Evaluate metric value against a threshold
+    - If the threshold is breached, generate an event using the Dynatrace SDK
+
+7. Event Trigger
+
+    - Trigger Workflow when a Davis problem event is detected
+    - Events are filtered on the type of event, based on the previous exercise
+
+8. Slack for Workflows
+    
+    - Third party integration is typically accomplished with Workflow Apps
+    - The Slack for Workflows App provides an easy-to-use mechanism for sending messages to a Slack environment containing the data and context from Dynatrace
+    - Leverage Jinja expressions to access Workflow action results and implement logic
+
+9. Code Snippets
+
+    - Review code snippets to re-use with Workflows in your custom use cases
+
+10. Clean up
+
+Ready to learn the essentials of automating your use cases with Dynatrace Workflows?
+
+## [View the Lab Guide](https://dynatrace-wwse.github.io/enablement-workflow-essentials)
