@@ -1,0 +1,1050 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../05_third_party_integration/">
+      
+      
+        <link rel="next" href="../cleanup/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>6. Code Snippets - Dynatrace Enablement Lab: Workflow Essentials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+  <!-- Add scripts that need to run before here -->
+  
+      
+    
+  <!-- Add scripts that need to run afterwards here -->
+    <script type="text/javascript" src="https://js-cdn.dynatrace.com/jstag/1612cf70810/bf81393wlb/a8e749099685c188_complete.js" crossorigin="anonymous"></script>
+
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#code-snippets" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Dynatrace Enablement Lab: Workflow Essentials" class="md-header__button md-logo" aria-label="Dynatrace Enablement Lab: Workflow Essentials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Dynatrace Enablement Lab: Workflow Essentials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              6. Code Snippets
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dynatrace-wwse/enablement-workflow-essentials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    View Code on GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Dynatrace Enablement Lab: Workflow Essentials" class="md-nav__button md-logo" aria-label="Dynatrace Enablement Lab: Workflow Essentials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Dynatrace Enablement Lab: Workflow Essentials
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dynatrace-wwse/enablement-workflow-essentials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    View Code on GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2-getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Getting started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_workflow_essentials/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Workflow Essentials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_ingest_and_alert/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Ingest and Alert
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_third_party_integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Third Party Integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    6. Code Snippets
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    6. Code Snippets
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-parameters-set-parameter-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow Parameters: Set Parameter Task
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-parameters-using-parameters-from-parameter-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow Parameters: Using Parameters from Parameter Task
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#app-environment-utilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      App Environment Utilities
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-loop-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working with Loop Actions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timed-wait-within-workflow-and-action-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Timed Wait within Workflow and Action Execution
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-external-data-via-https-with-fetch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting External Data via HTTP(S) with fetch()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sending-data-to-external-systems-via-https-with-fetch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sending Data to External Systems via HTTP(S) with fetch()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#javascript-runtime-dynatrace-sdk-for-typescript" class="md-nav__link">
+    <span class="md-ellipsis">
+      JavaScript Runtime: Dynatrace SDK for TypeScript
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#executing-dql-queries-within-js-code-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Executing DQL Queries within JS Code Actions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#credential-vault-access-via-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Credential Vault Access via SDK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metric-ingest-via-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metric Ingest via SDK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-ingestion-and-alerting-via-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event Ingestion (and Alerting) via SDK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#continue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continue
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cleanup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Cleanup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-parameters-set-parameter-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow Parameters: Set Parameter Task
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-parameters-using-parameters-from-parameter-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow Parameters: Using Parameters from Parameter Task
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#app-environment-utilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      App Environment Utilities
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-loop-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working with Loop Actions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timed-wait-within-workflow-and-action-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Timed Wait within Workflow and Action Execution
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-external-data-via-https-with-fetch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting External Data via HTTP(S) with fetch()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sending-data-to-external-systems-via-https-with-fetch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sending Data to External Systems via HTTP(S) with fetch()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#javascript-runtime-dynatrace-sdk-for-typescript" class="md-nav__link">
+    <span class="md-ellipsis">
+      JavaScript Runtime: Dynatrace SDK for TypeScript
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#executing-dql-queries-within-js-code-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Executing DQL Queries within JS Code Actions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#credential-vault-access-via-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Credential Vault Access via SDK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metric-ingest-via-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metric Ingest via SDK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-ingestion-and-alerting-via-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event Ingestion (and Alerting) via SDK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#continue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continue
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="code-snippets">Code Snippets<a class="headerlink" href="#code-snippets" title="Permanent link">#</a></h1>
+<p>Code Snippets Notebook</p>
+<p><a href="https://github.com/dynatrace-wwse/enablement-workflow-essentials/blob/main/assets/dynatrace/notebooks/Workflow_Essentials_-_Code_Snippets.json" target="_blank">Workflow Essentials Code Snippets</a></p>
+<p><img alt="./img/05-workflow-essentials-code-snippets.png" src="../img/05-workflow-essentials-code-snippets.png" /></p>
+<h3 id="workflow-parameters-set-parameter-task">Workflow Parameters: Set Parameter Task<a class="headerlink" href="#workflow-parameters-set-parameter-task" title="Permanent link">#</a></h3>
+<p>The first task of a workflow should be a parameter task that defines the parameters/variables used by the remainder of tasks in the workflow.  Environment and deployment unique settings, like URLs, entities, etc. should be set as parameters in this task so that no other changes need to be made within the workflow when it is copied/cloned/moved for other uses.</p>
+<p>The parameters are specified in a JSON object variable and then returned during task execution to be used by remaining tasks.  Include a description/purpose for the parameter and provide an example value.</p>
+<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">PARAMETERS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// PARAMETER - description of the parameter</span>
+<span class="w">    </span><span class="nx">PARAMETER</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;VALUE&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// i.e. PARAMETER: &quot;VALUE&quot; - example value of the parameter</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">PARAMETERS</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="workflow-parameters-using-parameters-from-parameter-task">Workflow Parameters: Using Parameters from Parameter Task<a class="headerlink" href="#workflow-parameters-using-parameters-from-parameter-task" title="Permanent link">#</a></h3>
+<p>Tasks executed after the parameter task can access the parameters and values from the task result.</p>
+<p>Within the JS code task, the <code>execution</code> class must be used from the <code>dynatrace-sdk/automation-utils</code> package.  Access the parameter from the task result and assign the value to a new variable.</p>
+<p>Within other task types (non JS code), the parameters can be accessed via Jinja expressions.</p>
+<p><code>{{ result("js_set_parameters")['PARAMETER NAME'] }}</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">execution</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@dynatrace-sdk/automation-utils&#39;</span><span class="p">;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">PARAMETERS_TASK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;js_set_parameters&#39;</span><span class="p">;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="nx">execution_id</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="c1">// get parameters from previous tasks</span>
+<span class="w">  </span><span class="c1">// execution</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">ex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">execution</span><span class="p">(</span><span class="nx">execution_id</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// parameters</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">parameters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">ex</span><span class="p">.</span><span class="nx">result</span><span class="p">(</span><span class="nx">PARAMETERS_TASK</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// declare new variables to easily access the parameters within this task</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">PARAMETER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">parameters</span><span class="p">[</span><span class="s1">&#39;PARAMETER&#39;</span><span class="p">];</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="app-environment-utilities">App Environment Utilities<a class="headerlink" href="#app-environment-utilities" title="Permanent link">#</a></h3>
+<p>There are app environment utilities available so that static coding of these values within the workflow are not necessary.</p>
+<p><a href="https://developer.dynatrace.com/develop/sdks/app-environment/" target="_blank">https://developer.dynatrace.com/develop/sdks/app-environment/</a></p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getCurrentUserDetails</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@dynatrace-sdk/app-environment&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getEnvironmentId</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@dynatrace-sdk/app-environment&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getEnvironmentUrl</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@dynatrace-sdk/app-environment&#39;</span><span class="p">;</span>
+
+<span class="c1">// import all 3</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getCurrentUserDetails</span><span class="p">,</span><span class="nx">getEnvironmentId</span><span class="p">,</span><span class="nx">getEnvironmentUrl</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@dynatrace-sdk/app-environment&#39;</span><span class="p">;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="c1">// get current workflow execution user details</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">user_details</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getCurrentUserDetails</span><span class="p">();</span><span class="w"> </span><span class="c1">// returns id, name, email in JSON format</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">user_email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">user_details</span><span class="p">[</span><span class="s1">&#39;email&#39;</span><span class="p">];</span><span class="w"> </span><span class="c1">// get the user email address</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">user_details</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">];</span><span class="w"> </span><span class="c1">// get the user id (UUID)</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">user_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">user_details</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">];</span><span class="w"> </span><span class="c1">// get the user name</span>
+
+<span class="w">  </span><span class="c1">// get current workflow execution environment id (abc123)</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">environment_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getEnvironmentId</span><span class="p">();</span>
+
+<span class="w">  </span><span class="c1">// get current workflow execution environment URL (abc123.apps.dynatrace.com)</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">environment_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getEnvironmentUrl</span><span class="p">();</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="working-with-loop-actions">Working with Loop Actions<a class="headerlink" href="#working-with-loop-actions" title="Permanent link">#</a></h3>
+<p>Workflow actions can be configured to run as loops with an array of input data as loop items.</p>
+<p>In the action options, an array (typically a result from a previous task) is provided as input. A loop item variable name is also provided for accessing the array element during each loop execution.</p>
+<p>Within the JS code task, the <code>actionExecution</code> class must be used from the <code>dynatrace-sdk/automation-utils</code> package.</p>
+<p>Access the loop item from <code>actionExecution().loopItem['loop item variable name']</code>.</p>
+<p>Within other task types (non JS code), the parameters can be accessed via Jinja expressions.</p>
+<p><code>{{ _.loop item variable name }}</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">execution</span><span class="p">,</span><span class="w"> </span><span class="nx">actionExecution</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@dynatrace-sdk/automation-utils&#39;</span><span class="p">;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="nx">execution_id</span><span class="p">,</span><span class="w"> </span><span class="nx">action_execution_id</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="c1">// execution</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">ex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">execution</span><span class="p">(</span><span class="nx">execution_id</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// get the loop item for the action execution</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">actionEx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">actionExecution</span><span class="p">(</span><span class="nx">action_execution_id</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">loop_item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">actionEx</span><span class="p">.</span><span class="nx">loopItem</span><span class="p">[</span><span class="s1">&#39;item&#39;</span><span class="p">];</span><span class="w"> </span><span class="c1">// Loop item variable name from task options</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="timed-wait-within-workflow-and-action-execution">Timed Wait within Workflow and Action Execution<a class="headerlink" href="#timed-wait-within-workflow-and-action-execution" title="Permanent link">#</a></h3>
+<p>There may be a need to perform a timed wait within the execution of a workflow or within a JS code action.  TypeScript provides the capabilities to perform a sleep for a specified amount of time.  The action and the workflow execution will be paused during this time.</p>
+<p>Additionally, workflow actions can be configured to 'Wait before' for a specified amount of time.  The entire workflow action will wait that amoutn of time before beginning execution.</p>
+<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">sleep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">waitTime</span><span class="o">:</span><span class="w"> </span><span class="nx">number</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span>
+<span class="w">  </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span><span class="w"> </span><span class="p">=&gt;</span>
+<span class="w">    </span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span><span class="w"> </span><span class="nx">waitTime</span><span class="p">));</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">waitTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 30,000ms = 30 seconds to sleep</span>
+<span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">sleep</span><span class="p">(</span><span class="mf">30000</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Finished Waiting&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Waiting 30 Seconds&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">waitTime</span><span class="p">();</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="getting-external-data-via-https-with-fetch">Getting External Data via HTTP(S) with fetch()<a class="headerlink" href="#getting-external-data-via-https-with-fetch" title="Permanent link">#</a></h3>
+<p>Workflows can be used to retrieve external data from systems accessible via HTTP(S) and return JSON payloads.</p>
+<p>The <code>fetch()</code> API can be used to execute HTTP(S) calls and retrieve JSON responses.</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank">https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch</a></p>
+<p>In order to access external systems, you must configure the domain in the allow list for outbound connections.</p>
+<p><a href="https://developer.dynatrace.com/develop/app-functions/allow-outbound-connections/" target="_blank">https://developer.dynatrace.com/develop/app-functions/allow-outbound-connections/</a></p>
+<p>For HTTPS calls, the URL/domain/host must have a valid signed SSL certificate or the call will fail.  There is no way to bypass the SSL certificate check due to data privacy and security standards.</p>
+<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="c1">// set the fetch() api parameters [method, headers, body]</span>
+<span class="w">  </span><span class="c1">// https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GET&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s1">&#39;accept&#39;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">};</span>
+
+<span class="w">  </span><span class="c1">// set the url for the fetch call</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;http://hostname:port/uri&quot;</span>
+<span class="w">  </span><span class="c1">// make the fetch call, passing the url and options, capture the response</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span><span class="nx">options</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// parse the json response as a new variable</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">response_json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="w">  </span><span class="c1">// return the json response</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">response_json</span><span class="p">;</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="sending-data-to-external-systems-via-https-with-fetch">Sending Data to External Systems via HTTP(S) with fetch()<a class="headerlink" href="#sending-data-to-external-systems-via-https-with-fetch" title="Permanent link">#</a></h3>
+<p>Workflows can be used to send data (preferably JSON payload) to external systems accessible via HTTP(S).</p>
+<p>The <code>fetch()</code> API can be used to execute HTTP(S) calls and send (JSON) payloads.</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank">https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch</a></p>
+<p>In order to access external systems, you must configure the domain in the allow list for outbound connections.</p>
+<p><a href="https://developer.dynatrace.com/develop/app-functions/allow-outbound-connections/" target="_blank">https://developer.dynatrace.com/develop/app-functions/allow-outbound-connections/</a></p>
+<p>For HTTPS calls, the URL/domain/host must have a valid signed SSL certificate or the call will fail.  There is no way to bypass the SSL certificate check due to data privacy and security standards.</p>
+<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="c1">// set the fetch() api parameters [method, headers, body]</span>
+<span class="w">  </span><span class="c1">// https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">json_body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">key</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s1">&#39;content-type&#39;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">json_body</span><span class="p">)</span><span class="w"> </span><span class="c1">// convert json object to json string</span>
+<span class="w">  </span><span class="p">};</span>
+
+<span class="w">  </span><span class="c1">// set the url for the fetch call</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;http://hostname:port/uri&quot;</span>
+<span class="w">  </span><span class="c1">// make the fetch call, passing the url and options, capture the response</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span><span class="nx">options</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// capture the response code</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">response_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">response_status</span><span class="p">;</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="javascript-runtime-dynatrace-sdk-for-typescript">JavaScript Runtime: Dynatrace SDK for TypeScript<a class="headerlink" href="#javascript-runtime-dynatrace-sdk-for-typescript" title="Permanent link">#</a></h3>
+<p>The SDK for TypeScript provides a TypeScript API for Dynatrace platform services and Dynatrace AppEngine functionality.</p>
+<p><a href="https://developer.dynatrace.com/develop/sdks/" target="_blank">https://developer.dynatrace.com/develop/sdks/</a></p>
+<p>It consists of the following:</p>
+<ul>
+<li>TypeScript packages focused on specific use cases to use Dynatrace platform functionality.</li>
+<li>Modular clients for each Dynatrace platform service to reduce overhead on a specific use.</li>
+</ul>
+<h3 id="executing-dql-queries-within-js-code-actions">Executing DQL Queries within JS Code Actions<a class="headerlink" href="#executing-dql-queries-within-js-code-actions" title="Permanent link">#</a></h3>
+<p>While there is a DQL workflow action type, it may be beneficial to execute a DQL query from within a JS code action.  This can be accomplished using the <code>queryExecutionClient</code> from the <code>dynatrace-sdk/client-query</code> package.</p>
+<p><a href="https://developer.dynatrace.com/develop/sdks/client-query/#queryexecute" target="_blank">https://developer.dynatrace.com/develop/sdks/client-query/#queryexecute</a></p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">queryExecutionClient</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dynatrace-sdk/client-query&quot;</span><span class="p">;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="c1">// build the DQL query</span>
+<span class="w">  </span><span class="c1">// https://developer.dynatrace.com/develop/sdks/client-query/#queryexecute</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">60</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;timeseries metric = avg(&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">metric</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;), by: {dimension}, from: now()-5m\</span>
+<span class="s1">                  | filter dimension == &quot;&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">dimension</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;&quot;\</span>
+<span class="s1">                  | summarize avg = avg(arrayAvg(metric))&#39;</span><span class="p">;</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">query_response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">queryExecutionClient</span><span class="p">.</span><span class="nx">queryExecute</span><span class="p">({</span><span class="w"> </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">query</span><span class="p">,</span><span class="w"> </span><span class="nx">requestTimeoutMilliseconds</span><span class="o">:</span><span class="w"> </span><span class="nx">timeout</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1000</span><span class="p">,</span><span class="w"> </span><span class="nx">fetchTimeoutSeconds</span><span class="o">:</span><span class="w"> </span><span class="nx">timeout</span><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="p">});</span>
+
+<span class="w">  </span><span class="c1">// check if the query result is empty (unexpectedly)</span>
+<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="nx">query_response</span><span class="p">.</span><span class="nx">result</span><span class="p">.</span><span class="nx">records</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Query returned an empty result unexpectedly!&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">query_response</span><span class="p">.</span><span class="nx">result</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">query_response</span><span class="p">.</span><span class="nx">result</span><span class="p">;</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="credential-vault-access-via-sdk">Credential Vault Access via SDK<a class="headerlink" href="#credential-vault-access-via-sdk" title="Permanent link">#</a></h3>
+<p>During workflow execution, integration with external systems may require credentials.  Those credentials should be accessed securely from the credential vault and not static coded into the workflow itself.</p>
+<p>Credentials can be accessed using <code>credentialVaultClient</code> from the <code>dynatrace-sdk/client-classic-environment-v2</code> package.</p>
+<p>When a credential is obtained, it contains the <code>token</code> value or the <code>username</code> and <code>password</code> values respectively.</p>
+<p><a href="https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#getcredentialsdetails" target="_blank">https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#getcredentialsdetails</a></p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">credentialVaultClient</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@dynatrace-sdk/client-classic-environment-v2&#39;</span><span class="p">;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="c1">// CREDENTIAL - the credential vault entity ID</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">CREDENTIAL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;CREDENTIALS_VAULT-ABC1235EEF8F36FD&quot;</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// get the credentials from the credential vault using the SDK</span>
+<span class="w">  </span><span class="c1">// https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#getcredentialsdetails</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">await</span><span class="w"> </span><span class="nx">credentialVaultClient</span><span class="p">.</span><span class="nx">getCredentialsDetails</span><span class="p">({</span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">CREDENTIAL</span><span class="p">}));</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">data</span><span class="p">[</span><span class="s1">&#39;token&#39;</span><span class="p">];</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">data</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">];</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">data</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">];</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="metric-ingest-via-sdk">Metric Ingest via SDK<a class="headerlink" href="#metric-ingest-via-sdk" title="Permanent link">#</a></h3>
+<p>Data ingest is a common use case for workflows.  Logs, traces, events, and metrics can all be ingested during workflow execution.</p>
+<p>Metric ingestion is possible with the <code>metricsClient</code> from the <code>dynatrace-sdk/client-classic-environment-v2</code> package.</p>
+<p><a href="https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#ingest-1" target="_blank">https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#ingest-1</a></p>
+<p>The metric ingest utilizes the metric line protocol format:</p>
+<p><a href="https://docs.dynatrace.com/docs/extend-dynatrace/extend-metrics/reference/metric-ingestion-protocol" target="_blank">https://docs.dynatrace.com/docs/extend-dynatrace/extend-metrics/reference/metric-ingestion-protocol</a></p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">metricsClient</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dynatrace-sdk/client-classic-environment-v2&quot;</span><span class="p">;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="c1">// build the line_protocol string to ingest the metric data point</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">line_protocol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;metric&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;,dimension-name=dimension-value&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39; value&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// mymetric,team=teamA,businessapp=hr 1000</span>
+
+<span class="w">  </span><span class="c1">// ingest the metric data point using the SDK</span>
+<span class="w">  </span><span class="c1">// https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#ingest-1</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">metricsClient</span><span class="p">.</span><span class="nx">ingest</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nx">line_protocol</span><span class="p">,</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="event-ingestion-and-alerting-via-sdk">Event Ingestion (and Alerting) via SDK<a class="headerlink" href="#event-ingestion-and-alerting-via-sdk" title="Permanent link">#</a></h3>
+<p>Generating alerts (events, problem events) is a common use case for workflows.</p>
+<p>Events can be ingested/created using the <code>eventsClient</code> from the <code>dynatrace-sdk/client-classic-environment-v2</code> package.</p>
+<p><a href="https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#createevent" target="_blank">https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#createevent</a></p>
+<p>There multiple event types that can be created via the <code>EventIngestEventType</code> class:</p>
+<p><a href="https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#eventingesteventtype" target="_blank">https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#eventingesteventtype</a></p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">eventsClient</span><span class="p">,</span><span class="w"> </span><span class="nx">EventIngestEventType</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dynatrace-sdk/client-classic-environment-v2&quot;</span><span class="p">;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="c1">// https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#createevent</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">event_response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">eventsClient</span><span class="p">.</span><span class="nx">createEvent</span><span class="p">({</span>
+<span class="w">    </span><span class="c1">// https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#eventingest</span>
+<span class="w">    </span><span class="nx">body</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">eventType</span><span class="o">:</span><span class="w"> </span><span class="nx">EventIngestEventType</span><span class="p">.</span><span class="nx">CustomAlert</span><span class="p">,</span><span class="w"> </span><span class="c1">// https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#eventingesteventtype</span>
+<span class="w">      </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Event Title&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">timeout</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">properties</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s1">&#39;property-1&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">value</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;property-2&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;value&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="continue">Continue<a class="headerlink" href="#continue" title="Permanent link">#</a></h2>
+<p>In the next section, we'll cover environment clean up.</p>
+<div class="grid cards">
+<ul>
+<li><a href="../cleanup/">Continue to Clean Up<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span></a></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

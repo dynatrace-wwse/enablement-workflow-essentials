@@ -1,0 +1,1261 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../03_workflow_essentials/">
+      
+      
+        <link rel="next" href="../05_third_party_integration/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>4. Ingest and Alert - Dynatrace Enablement Lab: Workflow Essentials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+  <!-- Add scripts that need to run before here -->
+  
+      
+    
+  <!-- Add scripts that need to run afterwards here -->
+    <script type="text/javascript" src="https://js-cdn.dynatrace.com/jstag/1612cf70810/bf81393wlb/a8e749099685c188_complete.js" crossorigin="anonymous"></script>
+
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ingest-and-alert" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Dynatrace Enablement Lab: Workflow Essentials" class="md-header__button md-logo" aria-label="Dynatrace Enablement Lab: Workflow Essentials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Dynatrace Enablement Lab: Workflow Essentials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4. Ingest and Alert
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dynatrace-wwse/enablement-workflow-essentials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    View Code on GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Dynatrace Enablement Lab: Workflow Essentials" class="md-nav__button md-logo" aria-label="Dynatrace Enablement Lab: Workflow Essentials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Dynatrace Enablement Lab: Workflow Essentials
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dynatrace-wwse/enablement-workflow-essentials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    View Code on GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2-getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Getting started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_workflow_essentials/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Workflow Essentials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    4. Ingest and Alert
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    4. Ingest and Alert
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#set-workflow-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set Workflow Parameters
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Set Workflow Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#js_set_parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      js_set_parameters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query-external-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Query External Data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Query External Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http_easytravel_search" class="md-nav__link">
+    <span class="md-ellipsis">
+      http_easytravel_search
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#credential-vault-with-dynatrace-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Credential Vault with Dynatrace SDK
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Credential Vault with Dynatrace SDK">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#js_get_credential" class="md-nav__link">
+    <span class="md-ellipsis">
+      js_get_credential
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metric-ingest-dynatrace-api-with-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metric Ingest - Dynatrace API with Token
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Metric Ingest - Dynatrace API with Token">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http_ingest_metric" class="md-nav__link">
+    <span class="md-ellipsis">
+      http_ingest_metric
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metric-ingest-dynatrace-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metric Ingest - Dynatrace SDK
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Metric Ingest - Dynatrace SDK">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#js_ingest_metric_sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      js_ingest_metric_sdk
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-ingest-dynatrace-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event Ingest - Dynatrace SDK
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Event Ingest - Dynatrace SDK">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#js_wait_30_seconds" class="md-nav__link">
+    <span class="md-ellipsis">
+      js_wait_30_seconds
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_dql_query_alert" class="md-nav__link">
+    <span class="md-ellipsis">
+      js_dql_query_alert
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#continue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continue
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_third_party_integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Third Party Integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_code_snippets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Code Snippets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cleanup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Cleanup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#set-workflow-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set Workflow Parameters
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Set Workflow Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#js_set_parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      js_set_parameters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query-external-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Query External Data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Query External Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http_easytravel_search" class="md-nav__link">
+    <span class="md-ellipsis">
+      http_easytravel_search
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#credential-vault-with-dynatrace-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Credential Vault with Dynatrace SDK
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Credential Vault with Dynatrace SDK">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#js_get_credential" class="md-nav__link">
+    <span class="md-ellipsis">
+      js_get_credential
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metric-ingest-dynatrace-api-with-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metric Ingest - Dynatrace API with Token
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Metric Ingest - Dynatrace API with Token">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http_ingest_metric" class="md-nav__link">
+    <span class="md-ellipsis">
+      http_ingest_metric
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metric-ingest-dynatrace-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metric Ingest - Dynatrace SDK
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Metric Ingest - Dynatrace SDK">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#js_ingest_metric_sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      js_ingest_metric_sdk
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-ingest-dynatrace-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event Ingest - Dynatrace SDK
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Event Ingest - Dynatrace SDK">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#js_wait_30_seconds" class="md-nav__link">
+    <span class="md-ellipsis">
+      js_wait_30_seconds
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#js_dql_query_alert" class="md-nav__link">
+    <span class="md-ellipsis">
+      js_dql_query_alert
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#continue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continue
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  dynatrace.sendBizEvent('page_load', {"page": "2. Getting started"})
+});
+</script>
+
+<h1 id="ingest-and-alert">Ingest and Alert<a class="headerlink" href="#ingest-and-alert" title="Permanent link">#</a></h1>
+<p>Goal: Retrieve data from an external system and ingest it as a metric.  If the value crosses a configured threshold, then generate an event/alert.</p>
+<ul>
+<li>Credential Vault<ul>
+<li>Access an API token from the Credential Vault using the Dynatrace SDK</li>
+</ul>
+</li>
+<li>Metric Ingest<ul>
+<li>Retrieve data from an external system using HTTP GET</li>
+<li>Ingest retrieved data point using the Dynatrace API with API token (not optimal)</li>
+<li>Ingest retrieved data point using the Dynatrace SDK (optimal)</li>
+</ul>
+</li>
+<li>Event Ingest<ul>
+<li>Query ingested metric data point using DQL</li>
+<li>Evaluate metric value against a threshold</li>
+<li>If the threshold is breached, generate an event using the Dynatrace SDK</li>
+</ul>
+</li>
+</ul>
+<h2 id="set-workflow-parameters">Set Workflow Parameters<a class="headerlink" href="#set-workflow-parameters" title="Permanent link">#</a></h2>
+<p>Begin by creating a new Workflow in the Workflows App within your Dynatrace environment.</p>
+<p><em>Remember to save progress often!</em></p>
+<p>Select a trigger: choose <code>On demand trigger</code></p>
+<p><img alt="./img/03-workflow-trigger-type.png" src="../img/03-workflow-trigger-type.png" /></p>
+<p>Click the <code>+</code> button to add a new action to the Workflow.</p>
+<p><img alt="./img/03-add-first-action.png" src="../img/03-add-first-action.png" /></p>
+<p>Choose action: choose <code>Run JavaScript</code> action type.</p>
+<p><img alt="./img/03-set-parameters-choose-action.png" src="../img/03-set-parameters-choose-action.png" /></p>
+<hr />
+<h3 id="js_set_parameters"><code>js_set_parameters</code><a class="headerlink" href="#js_set_parameters" title="Permanent link">#</a></h3>
+<p>Name:
+<div class="highlight"><pre><span></span><code>js_set_parameters
+</code></pre></div>
+Description:
+<div class="highlight"><pre><span></span><code>Set the parameters for this workflow
+</code></pre></div></p>
+<p>This will be the task/action that defines the parameters/variables that will be used by subsequent tasks and returns them in the result.  By setting the parameters as nested attribute key:value pairs within a single variable, as additional parameters are needed they can easily be added without modifying any other code.</p>
+<p>Set the task name and description respectively.</p>
+<p>Paste the following code snippet into the action <code>Input</code>:
+<div class="highlight"><pre><span></span><code>export default async function () {
+
+  let PARAMETERS = {
+
+    // EASYTRAVEL_URL - the URL to the easytravel rest API to search for journeys and receive JSON payload
+    EASYTRAVEL_URL: &quot;https://raw.githubusercontent.com/dynatrace-wwse/enablement-workflow-essentials/refs/heads/main/assets/app-data/easytravel_journey.json&quot;, // i.e. EASYTRAVEL_URL: &quot;https://raw.githubusercontent.com/dynatrace-wwse/enablement-workflow-essentials/refs/heads/main/assets/app-data/easytravel_journey.json&quot;
+
+    // METRIC - the unique metric id to ingest a data point for the easytravel journey amount
+    METRIC: &quot;custom.workflow_essentials.easytravel.journey_amount&quot;, // i.e. METRIC: &quot;custom.workflow_essentials.easytravel.journey_amount&quot;
+
+    // CREDENTIAL - the credential vault entity ID that holds the Dynatrace API token value with metrics.ingest scope
+    CREDENTIAL: &quot;&quot;, // i.e. CREDENTIAL: &quot;CREDENTIALS_VAULT-123ABCF8F36FD&quot;
+
+    // INGEST_URL - the URL of the dynatrace metric ingest API endpoint
+    INGEST_URL: &quot;https://&lt;tenant-id&gt;.live.dynatrace.com/api/v2/metrics/ingest&quot;, // i.e. INGEST_URL: &quot;https://abc123.live.dynatrace.com/api/v2/metrics/ingest&quot;
+
+    // THRESHOLD - the threshold amount to trigger an alert event
+    THRESHOLD: 500, // i.e. THRESHOLD: 500; trigger an alert event if the average journey amount is above 500.00
+
+  }
+
+  return PARAMETERS;
+}
+</code></pre></div></p>
+<p>Set the value of the missing variables:</p>
+<ul>
+<li>CREDENTIAL:<ul>
+<li>Use the credential vault entry ID from the Workflow Essentials - Config Generator workflow execution</li>
+</ul>
+</li>
+<li>INGEST_URL:<ul>
+<li>Replace <code>&lt;tenant-id&gt;</code> with your Dynatrace environment ID, i.e. <code>abc123</code></li>
+</ul>
+</li>
+</ul>
+<p><img alt="./img/03-set-parameters-input.png" src="../img/03-set-parameters-input.png" /></p>
+<h2 id="query-external-data">Query External Data<a class="headerlink" href="#query-external-data" title="Permanent link">#</a></h2>
+<h3 id="http_easytravel_search"><code>http_easytravel_search</code><a class="headerlink" href="#http_easytravel_search" title="Permanent link">#</a></h3>
+<p>Name:
+<div class="highlight"><pre><span></span><code>http_easytravel_search
+</code></pre></div>
+Description:
+<div class="highlight"><pre><span></span><code>Query external easytravel API for journey data
+</code></pre></div></p>
+<p>This will be the task/action that queries external data from an api endpoint that contains our metric data point.</p>
+<p>Locate the <code>js_set_parameters</code> task.</p>
+<p>Click the <code>+</code> button to add a new action to the Workflow.</p>
+<p>Choose action: choose <code>HTTP Request</code> action type.</p>
+<p>Set the task name and description respectively.</p>
+<p>Configure the HTTP Request action <code>Input</code>:</p>
+<p>Method:
+<div class="highlight"><pre><span></span><code>GET
+</code></pre></div></p>
+<p>URL:
+<div class="highlight"><pre><span></span><code>{{ result(&quot;js_set_parameters&quot;)[&#39;EASYTRAVEL_URL&#39;] }}
+</code></pre></div></p>
+<p>Headers:
+<div class="highlight"><pre><span></span><code>accept  application/json
+</code></pre></div></p>
+<p>Error Handling:
+<div class="highlight"><pre><span></span><code>Fail on certain HTTP response codes [Enabled]
+</code></pre></div></p>
+<p>HTTP error codes:
+<div class="highlight"><pre><span></span><code>400-599
+</code></pre></div></p>
+<p>Click on the task's <code>Conditions</code> tab.  Set the <code>Run this task if</code>: <code>js_set_parameters</code> is <code>success</code></p>
+<p>Additionally, we only want this task to run if the <code>EASYTRAVEL_URL</code> parameter is defined in the previous task.  We can access the result using a Jinja expression:
+<div class="highlight"><pre><span></span><code><span class="mf">1.</span><span class="w"> </span><span class="p">{{</span><span class="w"> </span><span class="nx">result</span><span class="p">(</span><span class="s2">&quot;task_name&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">}}</span>
+<span class="mf">2.</span><span class="w"> </span><span class="p">{{</span><span class="w"> </span><span class="nx">result</span><span class="p">(</span><span class="s2">&quot;task_name&quot;</span><span class="p">)[</span><span class="s1">&#39;result_attribute_name&#39;</span><span class="p">]</span><span class="w"> </span><span class="p">}}</span>
+<span class="mf">3.</span><span class="w"> </span><span class="p">{{</span><span class="w"> </span><span class="nx">result</span><span class="p">(</span><span class="s2">&quot;task_name&quot;</span><span class="p">)[</span><span class="s1">&#39;result_attribute_name&#39;</span><span class="p">]</span><span class="w"> </span><span class="nx">condition</span><span class="w"> </span><span class="nx">expression</span><span class="w"> </span><span class="p">}}</span>
+</code></pre></div></p>
+<p><a href="https://docs.dynatrace.com/docs/platform-modules/automations/workflows/reference">Expression Reference Documentation</a></p>
+<p>Set the <code>And custom condition was met</code>:
+<div class="highlight"><pre><span></span><code>{{ result(&quot;js_set_parameters&quot;)[&#39;EASYTRAVEL_URL&#39;] is defined }}
+</code></pre></div></p>
+<p><img alt="./img/03-http-easytravel-search-input.png" src="../img/03-http-easytravel-search-input.png" /></p>
+<p>Run the workflow and validate the results</p>
+<p><img alt="./img/03-http-easytravel-search-results.png" src="../img/03-http-easytravel-search-results.png" /></p>
+<h2 id="credential-vault-with-dynatrace-sdk">Credential Vault with Dynatrace SDK<a class="headerlink" href="#credential-vault-with-dynatrace-sdk" title="Permanent link">#</a></h2>
+<h3 id="js_get_credential"><code>js_get_credential</code><a class="headerlink" href="#js_get_credential" title="Permanent link">#</a></h3>
+<p>Name:
+<div class="highlight"><pre><span></span><code>js_get_credential
+</code></pre></div>
+Description:
+<div class="highlight"><pre><span></span><code>Access API token from the credential vault
+</code></pre></div></p>
+<p>This will be the task/action that uses the Dynatrace SDK to retrieve a credential from the vault.  Confidential data and parameters should be stored in the credential vault and not statically defined in the code.</p>
+<p>Locate the <code>http_easytravel_search</code> task.</p>
+<p>Click the <code>+</code> button to add a new action to the Workflow.</p>
+<p>Choose action: choose <code>Run JavaScript</code> action type.</p>
+<p>Set the task name and description respectively.</p>
+<p>Paste the following code snippet into the action <code>Input</code>:
+<div class="highlight"><pre><span></span><code>import { execution } from &#39;@dynatrace-sdk/automation-utils&#39;;
+import { credentialVaultClient } from &#39;@dynatrace-sdk/client-classic-environment-v2&#39;;
+
+const PARAMETERS_TASK = &#39;js_set_parameters&#39;;
+
+export default async function ({ execution_id }) {
+
+  // get parameters from previous tasks
+  // execution
+  const ex = await execution(execution_id);
+  // parameters
+  const parameters = await ex.result(PARAMETERS_TASK);
+  // CREDENTIAL
+  const CREDENTIAL = parameters[&#39;CREDENTIAL&#39;];
+
+  // get the credentials from the credential vault using the SDK
+  // https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#getcredentialsdetails
+  const data = (await credentialVaultClient.getCredentialsDetails({id: CREDENTIAL}));
+  const token = data[&#39;token&#39;];
+
+  return { token: token };
+}
+</code></pre></div></p>
+<p>Click on the task's <code>Conditions</code> tab.  Set the <code>Run this task if</code>: <code>http_easytravel_search</code> is <code>success</code></p>
+<p>Additionally, we only want this task to run if the <code>status_code</code> is <code>200</code> and the response is not empty in the previous task.</p>
+<p>Set the <code>And custom condition was met</code>:
+<div class="highlight"><pre><span></span><code>{{ result(&quot;http_easytravel_search&quot;)[&quot;status_code&quot;] == 200 and result(&quot;http_easytravel_search&quot;)[&quot;json&quot;] | length &gt; 0 }}
+</code></pre></div></p>
+<p><img alt="./img/03-get-credential-input.png" src="../img/03-get-credential-input.png" /></p>
+<h2 id="metric-ingest-dynatrace-api-with-token">Metric Ingest - Dynatrace API with Token<a class="headerlink" href="#metric-ingest-dynatrace-api-with-token" title="Permanent link">#</a></h2>
+<h3 id="http_ingest_metric"><code>http_ingest_metric</code><a class="headerlink" href="#http_ingest_metric" title="Permanent link">#</a></h3>
+<p>Name:
+<div class="highlight"><pre><span></span><code>http_ingest_metric
+</code></pre></div>
+Description:
+<div class="highlight"><pre><span></span><code>Ingest a metric data point using the metric API
+</code></pre></div></p>
+<p>This will be the task/action that ingests a metric data point from the previous task using an HTTP call to the metric ingest API with a token from the credential vault.</p>
+<p>Locate the <code>js_get_credential</code> task.</p>
+<p>Click the <code>+</code> button to add a new action to the Workflow.</p>
+<p>Choose action: choose <code>HTTP Request</code> action type.</p>
+<p>Set the task name and description respectively.</p>
+<p>Configure the HTTP Request action <code>Input</code>:</p>
+<p>Method:
+<div class="highlight"><pre><span></span><code>POST
+</code></pre></div></p>
+<p>URL:
+<div class="highlight"><pre><span></span><code>{{ result(&quot;js_set_parameters&quot;)[&#39;INGEST_URL&#39;] }}
+</code></pre></div></p>
+<p>Payload:
+<div class="highlight"><pre><span></span><code>{{ result(&quot;js_set_parameters&quot;)[&quot;METRIC&quot;] }},id={{ result(&quot;http_easytravel_search&quot;)[&quot;json&quot;][0][&quot;id&quot;] }},destination={{ result(&quot;http_easytravel_search&quot;)[&quot;json&quot;][0][&quot;destination&quot;] }} {{ result(&quot;http_easytravel_search&quot;)[&quot;json&quot;][0][&quot;amount&quot;] }}
+</code></pre></div></p>
+<p>Headers:
+<div class="highlight"><pre><span></span><code>Content-Type  text/plain
+Authorization   Api-Token {{ result(&quot;js_get_credential&quot;)[&quot;token&quot;] }}
+</code></pre></div></p>
+<p>Error Handling:
+<div class="highlight"><pre><span></span><code>Fail on certain HTTP response codes [Enabled]
+</code></pre></div></p>
+<p>HTTP error codes:
+<div class="highlight"><pre><span></span><code>400-599
+</code></pre></div></p>
+<p>Click on the task's <code>Conditions</code> tab.  Set the <code>Run this task if</code>: <code>js_get_credential</code> is <code>success</code></p>
+<p>Additionally, we only want this task to run if the <code>token</code> parameter is defined in the previous task.</p>
+<p>Set the <code>And custom condition was met</code>:
+<div class="highlight"><pre><span></span><code>{{ result(&quot;js_get_credential&quot;)[&#39;token&#39;] is defined }}
+</code></pre></div></p>
+<p><img alt="./img/03-http-ingest-metric-input.png" src="../img/03-http-ingest-metric-input.png" /></p>
+<p>Run the workflow and validate the results</p>
+<p><img alt="./img/03-http-ingest-metric-results.png" src="../img/03-http-ingest-metric-results.png" /></p>
+<h2 id="metric-ingest-dynatrace-sdk">Metric Ingest - Dynatrace SDK<a class="headerlink" href="#metric-ingest-dynatrace-sdk" title="Permanent link">#</a></h2>
+<h3 id="js_ingest_metric_sdk"><code>js_ingest_metric_sdk</code><a class="headerlink" href="#js_ingest_metric_sdk" title="Permanent link">#</a></h3>
+<p>Name:
+<div class="highlight"><pre><span></span><code>js_ingest_metric_sdk
+</code></pre></div>
+Description:
+<div class="highlight"><pre><span></span><code>Ingest a metric data point using the SDK
+</code></pre></div></p>
+<p>This will be the task/action that uses the Dynatrace SDK to ingest a metric data point.  The SDK makes it significantly easier to perform this function than using the API and authorization token.</p>
+<p>Locate the <code>http_easytravel_search</code> task.</p>
+<p>Click the <code>+</code> button to add a new action to the Workflow.</p>
+<p>Choose action: choose <code>Run JavaScript</code> action type.</p>
+<p>Set the task name and description respectively.</p>
+<p>Paste the following code snippet into the action <code>Input</code>:
+<div class="highlight"><pre><span></span><code>import { execution } from &#39;@dynatrace-sdk/automation-utils&#39;;
+import { metricsClient } from &quot;@dynatrace-sdk/client-classic-environment-v2&quot;;
+
+const PARAMETERS_TASK = &#39;js_set_parameters&#39;;
+const SEARCH_TASK = &#39;http_easytravel_search&#39;;
+
+export default async function ({ execution_id }) {
+
+  // get parameters from previous tasks
+  // execution
+  const ex = await execution(execution_id);
+  // parameters
+  const parameters = await ex.result(PARAMETERS_TASK);
+  const METRIC = parameters[&#39;METRIC&#39;];
+  // previous results
+  const search_results = await ex.result(SEARCH_TASK);
+  const id = search_results[&#39;json&#39;][0][&#39;id&#39;];
+  const amount = search_results[&#39;json&#39;][0][&#39;amount&#39;];
+  const destination = search_results[&#39;json&#39;][0][&#39;destination&#39;];
+
+  // build the line_protocol string to ingest the metric data point
+  const line_protocol = METRIC + &#39;,id=&#39; + id + &#39;,destination=&#39; + destination + &#39; &#39; + amount;
+  // (optional) log the line_protocol value
+  console.log(line_protocol);
+  // ingest the metric data point using the SDK
+  // https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#ingest-1
+  const data = await metricsClient.ingest({
+    body: line_protocol,
+  });
+
+  return { data: data };
+}
+</code></pre></div></p>
+<p>Click on the task's <code>Conditions</code> tab.  Set the <code>Run this task if</code>: <code>http_easytravel_search</code> is <code>success</code></p>
+<p>Additionally, we only want this task to run if the <code>status_code</code> is <code>200</code> and the response is not empty in the previous task.</p>
+<p>Set the <code>And custom condition was met</code>:
+<div class="highlight"><pre><span></span><code>{{ result(&quot;http_easytravel_search&quot;)[&quot;status_code&quot;] == 200 and result(&quot;http_easytravel_search&quot;)[&quot;json&quot;] | length &gt; 0 }}
+</code></pre></div></p>
+<p><img alt="./img/03-ingest-metric-sdk-input.png" src="../img/03-ingest-metric-sdk-input.png" /></p>
+<p>Run the workflow and validate the results</p>
+<p><img alt="./img/03-ingest-metric-sdk-results.png" src="../img/03-ingest-metric-sdk-results.png" /></p>
+<h2 id="event-ingest-dynatrace-sdk">Event Ingest - Dynatrace SDK<a class="headerlink" href="#event-ingest-dynatrace-sdk" title="Permanent link">#</a></h2>
+<h3 id="js_wait_30_seconds"><code>js_wait_30_seconds</code><a class="headerlink" href="#js_wait_30_seconds" title="Permanent link">#</a></h3>
+<p>Name:
+<div class="highlight"><pre><span></span><code>js_wait_30_seconds
+</code></pre></div>
+Description:
+<div class="highlight"><pre><span></span><code>Wait 30 seconds for data to be processed
+</code></pre></div></p>
+<p>This will be the task/action that pauses workflow execution for 30 seconds with a timed wait using JS code.  This method can be useful when you need to pause task execution within your JS code task.  Additionally, you can configure any task to wait up to 60 seconds in the <code>Options</code> tab.</p>
+<p>When data is ingested into the Dynatrace platform, it may not be available immediately.  To avoid a query from returning an empty result set, we'll wait 30 seconds for the data to be processed before continuing.</p>
+<p>Locate the <code>http_ingest_metric</code> task.</p>
+<p>Click the <code>+</code> button to add a new action to the Workflow.</p>
+<p>Choose action: choose <code>Run JavaScript</code> action type.</p>
+<p>Set the task name and description respectively.</p>
+<p>Locate the <code>js_ingest_metric_sdk</code> task.</p>
+<p>Click <em>and hold</em> the <code>+</code> button, then <em>drag</em> to connect this task to the <code>js_wait_30_seconds</code> task.</p>
+<p>Paste the following code snippet into the action <code>Input</code>:
+<div class="highlight"><pre><span></span><code>export default async function () {
+
+  const sleep = async (waitTime: number) =&gt;
+  new Promise(resolve =&gt;
+    setTimeout(resolve, waitTime));
+
+  const waitTime = async () =&gt; {
+  // 30,000ms = 30 seconds to sleep
+  await sleep(30000);
+  console.log(&quot;Finished Waiting&quot;);
+  }
+
+  console.log(&quot;Waiting 30 Seconds&quot;);
+  waitTime();
+
+}
+</code></pre></div></p>
+<p>Click on the task's <code>Conditions</code> tab.  Set the <code>Run this task if</code>: <code>js_ingest_metric_sdk</code> is <code>success</code> and <code>http_ingest_metric</code> is <code>success</code></p>
+<p><img alt="./img/03-wait-30-seconds-input.png" src="../img/03-wait-30-seconds-input.png" /></p>
+<hr />
+<h3 id="js_dql_query_alert"><code>js_dql_query_alert</code><a class="headerlink" href="#js_dql_query_alert" title="Permanent link">#</a></h3>
+<p>Name:
+<div class="highlight"><pre><span></span><code>js_dql_query_alert
+</code></pre></div>
+Description:
+<div class="highlight"><pre><span></span><code>Query metric data point and generate an alert via SDK
+</code></pre></div></p>
+<p>This will be the task/action that uses the Dynatrace SDK to execute a DQL query to retrieve a metric data point and trigger an alert event if the value crosses a threshold.  Using the Dynatrace SDK is an alternative method for running a DQL query within workflows.  When a Davis problem event is triggered using the Dynatrace SDK within workflows, the event is stored in Grail and the problem is available in the Problems app.</p>
+<p>Locate the <code>js_wait_30_seconds</code> task.</p>
+<p>Click the <code>+</code> button to add a new action to the Workflow.</p>
+<p>Choose action: choose <code>Run JavaScript</code> action type.</p>
+<p>Paste the following code snippet into the action <code>Input</code>:
+<div class="highlight"><pre><span></span><code>import { execution } from &#39;@dynatrace-sdk/automation-utils&#39;;
+import { queryExecutionClient } from &quot;@dynatrace-sdk/client-query&quot;;
+import { eventsClient, EventIngestEventType } from &quot;@dynatrace-sdk/client-classic-environment-v2&quot;;
+
+const PARAMETERS_TASK = &#39;js_set_parameters&#39;;
+const SEARCH_TASK = &#39;http_easytravel_search&#39;;
+
+export default async function ({ execution_id }) {
+
+  // get parameters from previous tasks
+  // execution
+  const ex = await execution(execution_id);
+  // parameters
+  const parameters = await ex.result(PARAMETERS_TASK);
+  const METRIC = parameters[&#39;METRIC&#39;];
+  const THRESHOLD = parameters[&#39;THRESHOLD&#39;];
+  // previous results
+  const search_results = await ex.result(SEARCH_TASK);
+  const destination = search_results[&#39;json&#39;][0][&#39;destination&#39;];
+
+  // build the DQL query for the metric
+  // query the metric value for the last 5 minutes
+  // https://developer.dynatrace.com/develop/sdks/client-query/#queryexecute
+  const timeout = 60;
+  const query = &#39;timeseries journey_amount = avg(&#39; + METRIC + &#39;), by: {destination}, from: now()-5m\
+                  | filter destination == &quot;&#39; + destination + &#39;&quot;\
+                  | summarize avg_amount = avg(arrayAvg(journey_amount))&#39;;
+
+  const query_response = await queryExecutionClient.queryExecute({ body: { query, requestTimeoutMilliseconds: timeout * 1000, fetchTimeoutSeconds: timeout  } });
+
+  // check if the query result is empty (unexpectedly)
+  if(query_response.result.records.length == 0) {
+    console.log(&quot;Query returned an empty result unexpectedly!&quot;);
+    return query_response.result;
+  }
+
+  // capture the average journey amount from query response
+  const avg_amount = parseFloat(query_response.result.records[0][&#39;avg_amount&#39;]);
+
+  // check if the avg amount value is above the threshold parameter, if true then raise alert event
+  if(avg_amount &gt; THRESHOLD) {
+
+    // https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#createevent
+    const event_response = await eventsClient.createEvent({
+      // https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#eventingest
+      body : {
+        eventType: EventIngestEventType.CustomAlert, // https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#eventingesteventtype
+        title: &#39;EasyTravel Journey Amount [ &#39; + avg_amount + &#39; ]&#39;,
+        timeout: 5,
+        properties: {
+          &#39;amount&#39;: avg_amount,
+          &#39;threshold&#39; : THRESHOLD,
+        }
+      }
+    });
+
+    // validate that the alert event was created, return the correlationId and details
+    if(event_response.eventIngestResults[0].status == &quot;OK&quot;) {
+      return {
+        amount: avg_amount,
+        threshold: THRESHOLD,
+        correlationId: event_response.eventIngestResults[0].correlationId
+      }
+    } else {
+      return {
+        amount: avg_amount,
+        threshold: THRESHOLD,
+        correlationId: &quot;ERROR&quot;
+      }
+    }
+  }
+}
+</code></pre></div></p>
+<p>Click on the task's <code>Conditions</code> tab.  Set the <code>Run this task if</code>: <code>js_wait_30_seconds</code> is <code>success</code></p>
+<p><img alt="./img/03-dql-query-alert-input.png" src="../img/03-dql-query-alert-input.png" /></p>
+<p>Run the workflow and validate the results</p>
+<p><img alt="./img/03-dql-query-alert-results.png" src="../img/03-dql-query-alert-results.png" /></p>
+<p>After validating that the workflow execution was successful and the <code>js_dql_query_alert</code> result has a populated <code>correlationId</code> value, open the Problems (or Problems (Classic)) app and view the open problem alert.</p>
+<p><img alt="./img/03-problem-card.png" src="../img/03-problem-card.png" /></p>
+<h2 id="continue">Continue<a class="headerlink" href="#continue" title="Permanent link">#</a></h2>
+<p>In the next section, we'll set up third party integration.</p>
+<div class="grid cards">
+<ul>
+<li><a href="../05_third_party_integration/">Continue to Third Party Integration<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span></a></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

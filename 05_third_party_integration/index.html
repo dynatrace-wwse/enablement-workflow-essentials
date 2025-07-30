@@ -1,0 +1,893 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../04_ingest_and_alert/">
+      
+      
+        <link rel="next" href="../06_code_snippets/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>5. Third Party Integration - Dynatrace Enablement Lab: Workflow Essentials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+  <!-- Add scripts that need to run before here -->
+  
+      
+    
+  <!-- Add scripts that need to run afterwards here -->
+    <script type="text/javascript" src="https://js-cdn.dynatrace.com/jstag/1612cf70810/bf81393wlb/a8e749099685c188_complete.js" crossorigin="anonymous"></script>
+
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#third-party-integration" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Dynatrace Enablement Lab: Workflow Essentials" class="md-header__button md-logo" aria-label="Dynatrace Enablement Lab: Workflow Essentials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Dynatrace Enablement Lab: Workflow Essentials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              5. Third Party Integration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dynatrace-wwse/enablement-workflow-essentials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    View Code on GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Dynatrace Enablement Lab: Workflow Essentials" class="md-nav__button md-logo" aria-label="Dynatrace Enablement Lab: Workflow Essentials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Dynatrace Enablement Lab: Workflow Essentials
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dynatrace-wwse/enablement-workflow-essentials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    View Code on GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2-getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Getting started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_workflow_essentials/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Workflow Essentials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_ingest_and_alert/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Ingest and Alert
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    5. Third Party Integration
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    5. Third Party Integration
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#slack-for-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Slack for Workflows
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#davis-problem-event-trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Davis Problem Event Trigger
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-workflow-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set Workflow Parameters
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Set Workflow Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#js_set_parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      js_set_parameters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slack-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Slack Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Slack Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#slack_send_message" class="md-nav__link">
+    <span class="md-ellipsis">
+      slack_send_message
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trigger-workflow-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trigger Workflow Execution
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#continue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continue
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_code_snippets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Code Snippets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cleanup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Cleanup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#slack-for-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Slack for Workflows
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#davis-problem-event-trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Davis Problem Event Trigger
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-workflow-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set Workflow Parameters
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Set Workflow Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#js_set_parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      js_set_parameters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slack-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Slack Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Slack Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#slack_send_message" class="md-nav__link">
+    <span class="md-ellipsis">
+      slack_send_message
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trigger-workflow-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trigger Workflow Execution
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#continue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continue
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  dynatrace.sendBizEvent('page_load', {"page": "2. Getting started"})
+});
+</script>
+
+<h1 id="third-party-integration">Third Party Integration<a class="headerlink" href="#third-party-integration" title="Permanent link">#</a></h1>
+<p>Goal: When a Davis problem event is triggered, send a problem summary as a Slack message to a chosen Slack channel.</p>
+<ul>
+<li>Event Trigger<ul>
+<li>Trigger Workflow when a Davis problem event is detected</li>
+<li>Events are filtered on the type of event, based on the previous exercise</li>
+</ul>
+</li>
+<li>Slack for Workflows<ul>
+<li>Third party integration is typically accomplished with Workflow Apps</li>
+<li>The Slack for Workflows App provides an easy-to-use mechanism for sending messages to a Slack environment containing the data and context from Dynatrace</li>
+<li>Leverage Jinja expressions to access Workflow action results and implement logic</li>
+</ul>
+</li>
+</ul>
+<h2 id="slack-for-workflows">Slack for Workflows<a class="headerlink" href="#slack-for-workflows" title="Permanent link">#</a></h2>
+<p>Your Dynatrace environment can integrate with a Slack workspace using Slack for Workflows. You can automate sending messages to Slack based on the events and schedules defined for your workflow.</p>
+<p><a href="https://docs.dynatrace.com/docs/platform-modules/automations/workflows/actions/slack" target="_blank">Slack for Workflows Documentation</a></p>
+<p>Setting up the Slack integration is straight forward and well documented.</p>
+<h2 id="davis-problem-event-trigger">Davis Problem Event Trigger<a class="headerlink" href="#davis-problem-event-trigger" title="Permanent link">#</a></h2>
+<p>Begin by creating a new Workflow in the Workflows App within your Dynatrace environment.</p>
+<p><em>Remember to save progress often!</em></p>
+<p>Select a trigger: choose <code>Davis problem trigger</code></p>
+<p>Filter the events that will trigger this workflow.</p>
+<p>Event state:
+<div class="highlight"><pre><span></span><code>active or closed
+</code></pre></div></p>
+<p>Event category:
+<div class="highlight"><pre><span></span><code>Custom
+</code></pre></div></p>
+<p>Affected entities:
+<div class="highlight"><pre><span></span><code>include entities with all defined tagged below
+</code></pre></div></p>
+<p>Additional custom filter query:
+<div class="highlight"><pre><span></span><code>matchesPhrase(event.name,&quot;EasyTravel Journey Amount&quot;)
+</code></pre></div></p>
+<p><img alt="./img/04-workflow-trigger-type.png" src="../img/04-workflow-trigger-type.png" /></p>
+<h2 id="set-workflow-parameters">Set Workflow Parameters<a class="headerlink" href="#set-workflow-parameters" title="Permanent link">#</a></h2>
+<p>Click the <code>+</code> button to add a new action to the Workflow.</p>
+<p>Choose action: choose <code>Run JavaScript</code> action type.</p>
+<p><img alt="./img/04-set-parameters-action-type.png" src="../img/04-set-parameters-action-type.png" /></p>
+<hr />
+<h3 id="js_set_parameters"><code>js_set_parameters</code><a class="headerlink" href="#js_set_parameters" title="Permanent link">#</a></h3>
+<p>Name:
+<div class="highlight"><pre><span></span><code>js_set_parameters
+</code></pre></div>
+Description:
+<div class="highlight"><pre><span></span><code>Set the parameters for this workflow
+</code></pre></div></p>
+<p>This will be the task/action that defines the parameters/variables that will be used by subsequent tasks and returns them in the result.  By setting the parameters as nested attribute key:value pairs within a single variable, as additional parameters are needed they can easily be added without modifying any other code.</p>
+<p>Set the task name and description respectively.</p>
+<p>Paste the following code snippet into the action <code>Input</code>:
+<div class="highlight"><pre><span></span><code>export default async function () {
+
+  let PARAMETERS = {
+
+    // SLACK_CHANNEL - the Slack channel name (without the #) that the Slack bot has been added to
+    SLACK_CHANNEL: &quot;&quot;, // i.e. SLACK_CHANNEL: &quot;workflow-essentials&quot;,
+
+  }
+
+  return PARAMETERS;
+}
+</code></pre></div></p>
+<p>Set the value of the missing variables:
+- SLACK_CHANNEL:
+    * Use the channel name you have been provided (or have created)</p>
+<p><img alt="./img/04-set-parameters-input.png" src="../img/04-set-parameters-input.png" /></p>
+<h2 id="slack-integration">Slack Integration<a class="headerlink" href="#slack-integration" title="Permanent link">#</a></h2>
+<h3 id="slack_send_message"><code>slack_send_message</code><a class="headerlink" href="#slack_send_message" title="Permanent link">#</a></h3>
+<p>Name:
+<div class="highlight"><pre><span></span><code>slack_send_message
+</code></pre></div>
+Description:
+<div class="highlight"><pre><span></span><code>Send problem summary in Slack
+</code></pre></div></p>
+<p>This will be the task/action that uses the Slack connection to send a problem summary message to a Slack channel.</p>
+<p>Locate the <code>js_set_parameters</code> task.</p>
+<p>Click the <code>+</code> button to add a new action to the Workflow.</p>
+<p>Choose action: choose <code>Send message</code> action type from the Slack for Workflows section/app.</p>
+<p><img alt="./img/04-send-message-action-type.png" src="../img/04-send-message-action-type.png" /></p>
+<p>Set the task name and description respectively.</p>
+<p>Configure the Send message action <code>Input</code>:</p>
+<p>Connection:
+<div class="highlight"><pre><span></span><code>workflow_essentials_demo
+</code></pre></div>
+<em>This connection was created by the Workflow Essentials - Config Generator workflow</em></p>
+<p>Channel:
+<div class="highlight"><pre><span></span><code>{{ result(&quot;js_set_parameters&quot;)[&#39;SLACK_CHANNEL&#39;] }}
+</code></pre></div></p>
+<p>Message:
+<div class="highlight"><pre><span></span><code>{
+    &quot;blocks&quot;: [
+        {
+            &quot;type&quot;: &quot;section&quot;,
+            &quot;block_id&quot;: &quot;sectionHeader&quot;,
+            &quot;text&quot;: {
+                &quot;type&quot;: &quot;mrkdwn&quot;,
+                &quot;text&quot;: &quot;Dynatrace :dt: Problem Detection \n Workflow Execution: [{{ execution().id }}]&quot;
+            }
+        },
+        {
+            &quot;type&quot;: &quot;divider&quot;
+        },
+        {
+            &quot;type&quot;: &quot;section&quot;,
+            &quot;block_id&quot;: &quot;problemState&quot;,
+            &quot;text&quot;: {
+                &quot;type&quot;: &quot;mrkdwn&quot;,
+                &quot;text&quot;: &quot;Problem State: {% if event()[&#39;event.status&#39;] == &#39;ACTIVE&#39; %} :warning: OPEN :warning: {% endif %} {% if event()[&#39;event.status&#39;] == &#39;CLOSED&#39; %} :white_check_mark: RESOLVED :white_check_mark: {% endif %}&quot;
+            }
+        },
+        {
+            &quot;type&quot;: &quot;divider&quot;
+        },
+        {
+            &quot;type&quot;: &quot;section&quot;,
+            &quot;block_id&quot;: &quot;problemSummary&quot;,
+            &quot;text&quot;: {
+                &quot;type&quot;: &quot;mrkdwn&quot;,
+                &quot;text&quot;: &quot;Problem Number: [*{{ event()[&#39;display_id&#39;] }}*] \n Problem ID: [ {{ event()[&#39;event.id&#39;] }} ] \n [ {{ event()[&#39;event.name&#39;] }} ]&quot;
+            }
+        },
+        {
+            &quot;type&quot;: &quot;divider&quot;
+        },
+        {
+            &quot;type&quot;: &quot;actions&quot;,
+            &quot;elements&quot;: [
+                {
+                    &quot;type&quot;: &quot;button&quot;,
+                    &quot;text&quot;: {
+                        &quot;type&quot;: &quot;plain_text&quot;,
+                        &quot;text&quot;: &quot;View Problem&quot;,
+                        &quot;emoji&quot;: true
+                    },
+                    &quot;value&quot;: &quot;problem&quot;,
+                    &quot;url&quot;: &quot;{{ environment().url }}/ui/apps/dynatrace.classic.problems/#problems/problemdetails;pid={{ event()[&#39;event.id&#39;] }}&quot;
+                },
+                {
+                    &quot;type&quot;: &quot;button&quot;,
+                    &quot;text&quot;: {
+                        &quot;type&quot;: &quot;plain_text&quot;,
+                        &quot;text&quot;: &quot;View Workflow Execution&quot;,
+                        &quot;emoji&quot;: true
+                    },
+                    &quot;value&quot;: &quot;workflow&quot;,
+                    &quot;url&quot;: &quot;{{ environment().url }}/ui/apps/dynatrace.automations/executions/{{ execution().id }}&quot;
+                }
+            ]
+        }
+    ]
+}
+</code></pre></div></p>
+<p><img alt="./img/04-send-message-input.png" src="../img/04-send-message-input.png" /></p>
+<p>Click on the task's <code>Conditions</code> tab.  Set the <code>Run this task if</code>: <code>js_set_parameters</code> is <code>success</code></p>
+<p>Additionally, we only want this task to run if the <code>SLACK_CHANNEL</code> parameter is defined in the previous task.  We can access the result using a Jinja expression:
+<div class="highlight"><pre><span></span><code>1. {{ result(&quot;task_name&quot;) }}
+2. {{ result(&quot;task_name&quot;)[&#39;result_attribute_name&#39;] }}
+3. {{ result(&quot;task_name&quot;)[&#39;result_attribute_name&#39;] condition expression }}
+</code></pre></div></p>
+<p><a href="https://docs.dynatrace.com/docs/platform-modules/automations/workflows/reference">Expression Reference Documentation</a></p>
+<p>Set the <code>And custom condition was met</code>:
+<div class="highlight"><pre><span></span><code>{{ result(&quot;js_set_parameters&quot;)[&#39;SLACK_CHANNEL&#39;] is defined }}
+</code></pre></div></p>
+<p><img alt="./img/04-send-message-conditions.png" src="../img/04-send-message-conditions.png" /></p>
+<h2 id="trigger-workflow-execution">Trigger Workflow Execution<a class="headerlink" href="#trigger-workflow-execution" title="Permanent link">#</a></h2>
+<p>Open the Workflow Essentials - Ingest and Alert workflow from the previous exercise.  Run the workflow and validate the results.  A new problem event should have been created.</p>
+<p><img alt="./img/04-ingest-and-alert-execution-results.png" src="../img/04-ingest-and-alert-execution-results.png" /></p>
+<p>Shortly after running the other workflow, the Workflow Essentials - Slack Integration workflow should have triggered as a result of the problem event.  Check the execution and validate the results.  Open the Slack channel and validate that the message contains the problem summary.</p>
+<p><img alt="./img/04-slack-integration-execution-results.png" src="../img/04-slack-integration-execution-results.png" /></p>
+<p>Third party integrations are available as Workflow Action Apps, which are available in the Hub.</p>
+<p><img alt="./img/04-workflow-action-apps-in-hub.png" src="../img/04-workflow-action-apps-in-hub.png" /></p>
+<h2 id="continue">Continue<a class="headerlink" href="#continue" title="Permanent link">#</a></h2>
+<p>In the next section, you'll find a Notebook with code snippets to re-use in your Workflows.</p>
+<div class="grid cards">
+<ul>
+<li><a href="../06_code_snippets/">Continue to Code Snippets<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span></a></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
