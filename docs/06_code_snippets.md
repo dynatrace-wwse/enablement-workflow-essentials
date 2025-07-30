@@ -1,12 +1,12 @@
---8<-- "snippets/send-bizevent/07_code_snippets.js"
+--8<-- "snippets/send-bizevent/06_code_snippets.js"
 
-## Code Snippets
+# Code Snippets
 
 Code Snippets Notebook
 
-[Workflow Essentials Code Snippets](https://github.com/dynatrace-wwse/enablement-workflow-essentials/blob/main/lab-guide/assets/Workflow_Essentials_-_Code_Snippets.json)
+[Workflow Essentials Code Snippets](https://github.com/dynatrace-wwse/enablement-workflow-essentials/blob/main/lab-guide/assets/Workflow_Essentials_-_Code_Snippets.json){target=_blank}
 
-![../../assets/images/05-workflow-essentials-code-snippets.png](../../assets/images/05-workflow-essentials-code-snippets.png)
+![./img/05-workflow-essentials-code-snippets.png](./img/05-workflow-essentials-code-snippets.png)
 
 ### Workflow Parameters: Set Parameter Task
 

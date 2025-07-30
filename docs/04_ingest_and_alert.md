@@ -1,6 +1,6 @@
---8<-- "snippets/send-bizevent/05_ingest_and_alert.js"
+--8<-- "snippets/send-bizevent/04_ingest_and_alert.js"
 
-## Ingest and Alert
+# Ingest and Alert
 
 Goal: Retrieve data from an external system and ingest it as a metric.  If the value crosses a configured threshold, then generate an event/alert.
 
@@ -15,208 +15,208 @@ Goal: Retrieve data from an external system and ingest it as a metric.  If the v
     * Evaluate metric value against a threshold
     * If the threshold is breached, generate an event using the Dynatrace SDK
 
-  ## Set Workflow Parameters
+## Set Workflow Parameters
+
+Begin by creating a new Workflow in the Workflows App within your Dynatrace environment.
+
+*Remember to save progress often!*
+
+Select a trigger: choose `On demand trigger`
+
+![./img/03-workflow-trigger-type.png](./img/03-workflow-trigger-type.png)
+
+Click the `+` button to add a new action to the Workflow.
+
+![./img/03-add-first-action.png](./img/03-add-first-action.png)
+
+Choose action: choose `Run JavaScript` action type.
+
+![./img/03-set-parameters-choose-action.png](./img/03-set-parameters-choose-action.png)
+
+---
+### `js_set_parameters`
+Name:
+```text
+js_set_parameters
+```
+Description:
+```text
+Set the parameters for this workflow
+```
+
+This will be the task/action that defines the parameters/variables that will be used by subsequent tasks and returns them in the result.  By setting the parameters as nested attribute key:value pairs within a single variable, as additional parameters are needed they can easily be added without modifying any other code.
+
+Set the task name and description respectively.
+
+Paste the following code snippet into the action `Input`:
+```
+export default async function () {
+
+  let PARAMETERS = {
+
+    // EASYTRAVEL_URL - the URL to the easytravel rest API to search for journeys and receive JSON payload
+    EASYTRAVEL_URL: "http://aeb26f2507d934338baf67206067edef-612923892.us-east-1.elb.amazonaws.com/easytravel/rest/journeys/?match=Dallas&from=&to=", // i.e. EASYTRAVEL_URL: "http://aeb26f2507d934338baf67206067edef-612923892.us-east-1.elb.amazonaws.com/easytravel/rest/journeys/?match=Dallas&from=&to="
   
-  Begin by creating a new Workflow in the Workflows App within your Dynatrace environment.
+    // METRIC - the unique metric id to ingest a data point for the easytravel journey amount
+    METRIC: "custom.workflow_essentials.easytravel.journey_amount", // i.e. METRIC: "custom.workflow_essentials.easytravel.journey_amount"
   
-  *Remember to save progress often!*
-  
-  Select a trigger: choose `On demand trigger`
-  
-  ![./img//03-workflow-trigger-type.png](./img//03-workflow-trigger-type.png)
-  
-  Click the `+` button to add a new action to the Workflow.
-  
-  ![./img//03-add-first-action.png](./img//03-add-first-action.png)
-  
-  Choose action: choose `Run JavaScript` action type.
-  
-  ![./img//03-set-parameters-choose-action.png](./img//03-set-parameters-choose-action.png)
-  
-  ---
-  #### `js_set_parameters`
-  Name:
-  ```text
-  js_set_parameters
-  ```
-  Description:
-  ```text
-  Set the parameters for this workflow
-  ```
-  
-  This will be the task/action that defines the parameters/variables that will be used by subsequent tasks and returns them in the result.  By setting the parameters as nested attribute key:value pairs within a single variable, as additional parameters are needed they can easily be added without modifying any other code.
-  
-  Set the task name and description respectively.
-  
-  Paste the following code snippet into the action `Input`:
-  ```
-  export default async function () {
-  
-    let PARAMETERS = {
-  
-      // EASYTRAVEL_URL - the URL to the easytravel rest API to search for journeys and receive JSON payload
-      EASYTRAVEL_URL: "http://aeb26f2507d934338baf67206067edef-612923892.us-east-1.elb.amazonaws.com/easytravel/rest/journeys/?match=Dallas&from=&to=", // i.e. EASYTRAVEL_URL: "http://aeb26f2507d934338baf67206067edef-612923892.us-east-1.elb.amazonaws.com/easytravel/rest/journeys/?match=Dallas&from=&to="
+    // CREDENTIAL - the credential vault entity ID that holds the Dynatrace API token value with metrics.ingest scope
+    CREDENTIAL: "", // i.e. CREDENTIAL: "CREDENTIALS_VAULT-123ABCF8F36FD"
+
+    // INGEST_URL - the URL of the dynatrace metric ingest API endpoint
+    INGEST_URL: "https://<tenant-id>.live.dynatrace.com/api/v2/metrics/ingest", // i.e. INGEST_URL: "https://abc123.live.dynatrace.com/api/v2/metrics/ingest"
+
+    // THRESHOLD - the threshold amount to trigger an alert event
+    THRESHOLD: 500, // i.e. THRESHOLD: 500; trigger an alert event if the average journey amount is above 500.00
     
-      // METRIC - the unique metric id to ingest a data point for the easytravel journey amount
-      METRIC: "custom.workflow_essentials.easytravel.journey_amount", // i.e. METRIC: "custom.workflow_essentials.easytravel.journey_amount"
-    
-      // CREDENTIAL - the credential vault entity ID that holds the Dynatrace API token value with metrics.ingest scope
-      CREDENTIAL: "", // i.e. CREDENTIAL: "CREDENTIALS_VAULT-123ABCF8F36FD"
-  
-      // INGEST_URL - the URL of the dynatrace metric ingest API endpoint
-      INGEST_URL: "https://<tenant-id>.live.dynatrace.com/api/v2/metrics/ingest", // i.e. INGEST_URL: "https://abc123.live.dynatrace.com/api/v2/metrics/ingest"
-  
-      // THRESHOLD - the threshold amount to trigger an alert event
-      THRESHOLD: 500, // i.e. THRESHOLD: 500; trigger an alert event if the average journey amount is above 500.00
-      
-    }
-    
-    return PARAMETERS;
   }
-  ```
   
-  Set the value of the missing variables:
-  - CREDENTIAL:
-      * Use the credential vault entry ID from the Workflow Essentials - Config Generator workflow execution
-  - INGEST_URL:
-      * Replace `<tenant-id>` with your Dynatrace environment ID, i.e. `abc123`
-  
-  ![./img//03-set-parameters-input.png](./img//03-set-parameters-input.png)
+  return PARAMETERS;
+}
+```
 
-  ## Query External Data
-  
-  #### `http_easytravel_search`
-  Name:
-  ```text
-  http_easytravel_search
-  ```
-  Description:
-  ```text
-  Query external easytravel API for journey data
-  ```
-  
-  This will be the task/action that queries external data from an api endpoint that contains our metric data point.
-  
-  Locate the `js_set_parameters` task.
-  
-  Click the `+` button to add a new action to the Workflow.
-  
-  Choose action: choose `HTTP Request` action type.
-  
-  Set the task name and description respectively.
-  
-  Configure the HTTP Request action `Input`:
-  
-  Method:
-  ```
-  GET
-  ```
-  
-  URL:
-  ```
-  {{ result("js_set_parameters")['EASYTRAVEL_URL'] }}
-  ```
-  
-  Headers:
-  ```
-  accept  application/json
-  ```
-  
-  Error Handling:
-  ```
-  Fail on certain HTTP response codes [Enabled]
-  ```
-  
-  HTTP error codes:
-  ```
-  400-599
-  ```
-  
-  Click on the task's `Conditions` tab.  Set the `Run this task if`: `js_set_parameters` is `success`
-  
-  Additionally, we only want this task to run if the `EASYTRAVEL_URL` parameter is defined in the previous task.  We can access the result using a Jinja expression:
-  ```js
-  1. {{ result("task_name") }}
-  2. {{ result("task_name")['result_attribute_name'] }}
-  3. {{ result("task_name")['result_attribute_name'] condition expression }}
-  ```
-  
-  [Expression Reference Documentation](https://docs.dynatrace.com/docs/platform-modules/automations/workflows/reference)
-  
-  Set the `And custom condition was met`:
-  ```
-  {{ result("js_set_parameters")['EASYTRAVEL_URL'] is defined }}
-  ```
-  
-  ![./img//03-http-easytravel-search-input.png](./img//03-http-easytravel-search-input.png)
-  
-  Run the workflow and validate the results
-  
-  ![./img//03-http-easytravel-search-results.png](./img//03-http-easytravel-search-results.png)
+Set the value of the missing variables:
 
-    ## Credential Vault with Dynatrace SDK
-    
-    #### `js_get_credential`
-    Name:
-    ```text
-    js_get_credential
-    ```
-    Description:
-    ```text
-    Access API token from the credential vault
-    ```
-    
-    This will be the task/action that uses the Dynatrace SDK to retrieve a credential from the vault.  Confidential data and parameters should be stored in the credential vault and not statically defined in the code.
-    
-    Locate the `http_easytravel_search` task.
-    
-    Click the `+` button to add a new action to the Workflow.
-    
-    Choose action: choose `Run JavaScript` action type.
-    
-    Set the task name and description respectively.
-    
-    Paste the following code snippet into the action `Input`:
-    ```
-    import { execution } from '@dynatrace-sdk/automation-utils';
-    import { credentialVaultClient } from '@dynatrace-sdk/client-classic-environment-v2';
-    
-    const PARAMETERS_TASK = 'js_set_parameters';
-    
-    export default async function ({ execution_id }) {
-    
-      // get parameters from previous tasks
-      // execution
-      const ex = await execution(execution_id);
-      // parameters
-      const parameters = await ex.result(PARAMETERS_TASK);
-      // CREDENTIAL
-      const CREDENTIAL = parameters['CREDENTIAL'];
-    
-      // get the credentials from the credential vault using the SDK
-      // https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#getcredentialsdetails
-      const data = (await credentialVaultClient.getCredentialsDetails({id: CREDENTIAL}));
-      const token = data['token'];
-      
-      return { token: token };
-    }
-    ```
-    
-    Click on the task's `Conditions` tab.  Set the `Run this task if`: `http_easytravel_search` is `success`
-    
-    Additionally, we only want this task to run if the `status_code` is `200` and the response is not empty in the previous task.
-    
-    Set the `And custom condition was met`:
-    ```
-    {{ result("http_easytravel_search")["status_code"] == 200 and result("http_easytravel_search")["json"] | length > 0 }}
-    ```
-    
-    ![./img//03-get-credential-input.png](./img//03-get-credential-input.png)
+- CREDENTIAL:
+    * Use the credential vault entry ID from the Workflow Essentials - Config Generator workflow execution
+- INGEST_URL:
+    * Replace `<tenant-id>` with your Dynatrace environment ID, i.e. `abc123`
 
+![./img/03-set-parameters-input.png](./img/03-set-parameters-input.png)
+
+## Query External Data
+
+### `http_easytravel_search`
+Name:
+```text
+http_easytravel_search
+```
+Description:
+```text
+Query external easytravel API for journey data
+```
+
+This will be the task/action that queries external data from an api endpoint that contains our metric data point.
+
+Locate the `js_set_parameters` task.
+
+Click the `+` button to add a new action to the Workflow.
+
+Choose action: choose `HTTP Request` action type.
+
+Set the task name and description respectively.
+
+Configure the HTTP Request action `Input`:
+
+Method:
+```
+GET
+```
+
+URL:
+```
+{{ result("js_set_parameters")['EASYTRAVEL_URL'] }}
+```
+
+Headers:
+```
+accept  application/json
+```
+
+Error Handling:
+```
+Fail on certain HTTP response codes [Enabled]
+```
+
+HTTP error codes:
+```
+400-599
+```
+
+Click on the task's `Conditions` tab.  Set the `Run this task if`: `js_set_parameters` is `success`
+
+Additionally, we only want this task to run if the `EASYTRAVEL_URL` parameter is defined in the previous task.  We can access the result using a Jinja expression:
+```js
+1. {{ result("task_name") }}
+2. {{ result("task_name")['result_attribute_name'] }}
+3. {{ result("task_name")['result_attribute_name'] condition expression }}
+```
+
+[Expression Reference Documentation](https://docs.dynatrace.com/docs/platform-modules/automations/workflows/reference)
+
+Set the `And custom condition was met`:
+```
+{{ result("js_set_parameters")['EASYTRAVEL_URL'] is defined }}
+```
+
+![./img/03-http-easytravel-search-input.png](./img/03-http-easytravel-search-input.png)
+
+Run the workflow and validate the results
+
+![./img/03-http-easytravel-search-results.png](./img/03-http-easytravel-search-results.png)
+
+## Credential Vault with Dynatrace SDK
+
+### `js_get_credential`
+Name:
+```text
+js_get_credential
+```
+Description:
+```text
+Access API token from the credential vault
+```
+
+This will be the task/action that uses the Dynatrace SDK to retrieve a credential from the vault.  Confidential data and parameters should be stored in the credential vault and not statically defined in the code.
+
+Locate the `http_easytravel_search` task.
+
+Click the `+` button to add a new action to the Workflow.
+
+Choose action: choose `Run JavaScript` action type.
+
+Set the task name and description respectively.
+
+Paste the following code snippet into the action `Input`:
+```
+import { execution } from '@dynatrace-sdk/automation-utils';
+import { credentialVaultClient } from '@dynatrace-sdk/client-classic-environment-v2';
+
+const PARAMETERS_TASK = 'js_set_parameters';
+
+export default async function ({ execution_id }) {
+
+  // get parameters from previous tasks
+  // execution
+  const ex = await execution(execution_id);
+  // parameters
+  const parameters = await ex.result(PARAMETERS_TASK);
+  // CREDENTIAL
+  const CREDENTIAL = parameters['CREDENTIAL'];
+
+  // get the credentials from the credential vault using the SDK
+  // https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#getcredentialsdetails
+  const data = (await credentialVaultClient.getCredentialsDetails({id: CREDENTIAL}));
+  const token = data['token'];
+  
+  return { token: token };
+}
+```
+
+Click on the task's `Conditions` tab.  Set the `Run this task if`: `http_easytravel_search` is `success`
+
+Additionally, we only want this task to run if the `status_code` is `200` and the response is not empty in the previous task.
+
+Set the `And custom condition was met`:
+```
+{{ result("http_easytravel_search")["status_code"] == 200 and result("http_easytravel_search")["json"] | length > 0 }}
+```
+
+![./img/03-get-credential-input.png](./img/03-get-credential-input.png)
 
 ## Metric Ingest - Dynatrace API with Token
 
-#### `http_ingest_metric`
+### `http_ingest_metric`
 Name:
 ```text
 http_ingest_metric
@@ -278,15 +278,15 @@ Set the `And custom condition was met`:
 {{ result("js_get_credential")['token'] is defined }}
 ```
 
-![./img//03-http-ingest-metric-input.png](./img//03-http-ingest-metric-input.png)
+![./img/03-http-ingest-metric-input.png](./img/03-http-ingest-metric-input.png)
 
 Run the workflow and validate the results
 
-![./img//03-http-ingest-metric-results.png](./img//03-http-ingest-metric-results.png)
+![./img/03-http-ingest-metric-results.png](./img/03-http-ingest-metric-results.png)
 
 ## Metric Ingest - Dynatrace SDK
 
-#### `js_ingest_metric_sdk`
+### `js_ingest_metric_sdk`
 Name:
 ```text
 js_ingest_metric_sdk
@@ -351,15 +351,15 @@ Set the `And custom condition was met`:
 {{ result("http_easytravel_search")["status_code"] == 200 and result("http_easytravel_search")["json"] | length > 0 }}
 ```
 
-![./img//03-ingest-metric-sdk-input.png](./img//03-ingest-metric-sdk-input.png)
+![./img/03-ingest-metric-sdk-input.png](./img/03-ingest-metric-sdk-input.png)
 
 Run the workflow and validate the results
 
-![./img//03-ingest-metric-sdk-results.png](./img//03-ingest-metric-sdk-results.png)
+![./img/03-ingest-metric-sdk-results.png](./img/03-ingest-metric-sdk-results.png)
 
 ## Event Ingest - Dynatrace SDK
 
-#### `js_wait_30_seconds`
+### `js_wait_30_seconds`
 Name:
 ```text
 js_wait_30_seconds
@@ -407,10 +407,10 @@ export default async function () {
 
 Click on the task's `Conditions` tab.  Set the `Run this task if`: `js_ingest_metric_sdk` is `success` and `http_ingest_metric` is `success`
 
-![./img//03-wait-30-seconds-input.png](./img//03-wait-30-seconds-input.png)
+![./img/03-wait-30-seconds-input.png](./img/03-wait-30-seconds-input.png)
 
 ---
-#### `js_dql_query_alert`
+### `js_dql_query_alert`
 Name:
 ```text
 js_dql_query_alert
@@ -506,20 +506,20 @@ export default async function ({ execution_id }) {
 
 Click on the task's `Conditions` tab.  Set the `Run this task if`: `js_wait_30_seconds` is `success`
 
-![./img//03-dql-query-alert-input.png](./img//03-dql-query-alert-input.png)
+![./img/03-dql-query-alert-input.png](./img/03-dql-query-alert-input.png)
 
 Run the workflow and validate the results
 
-![./img//03-dql-query-alert-results.png](./img//03-dql-query-alert-results.png)
+![./img/03-dql-query-alert-results.png](./img/03-dql-query-alert-results.png)
 
 After validating that the workflow execution was successful and the `js_dql_query_alert` result has a populated `correlationId` value, open the Problems (or Problems (Classic)) app and view the open problem alert.
 
-![./img//03-problem-card.png](./img//03-problem-card.png)
+![./img/03-problem-card.png](./img/03-problem-card.png)
 
 ## Continue
 
-In the next section, we'll touch on thrid party integration.
+In the next section, we'll set up third party integration.
 
 <div class="grid cards" markdown>
-- [Continue to Third Party Integration:octicons-arrow-right-24:](06_third_party_integration.md)
+- [Continue to Third Party Integration:octicons-arrow-right-24:](05_third_party_integration.md)
 </div>

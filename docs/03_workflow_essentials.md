@@ -1,6 +1,6 @@
---8<-- "snippets/send-bizevent/04_workflow_essentials.js"
+--8<-- "snippets/send-bizevent/03_workflow_essentials.js"
 
-## Workflow Essentials
+# Workflow Essentials
 
 Goal: Utilize essential Workflow techniques applicable to most use cases.
 
@@ -23,18 +23,18 @@ Begin by creating a new Workflow in the Workflows App within your Dynatrace envi
 
 Select a trigger: choose `On demand trigger`
 
-![./img//02-workflow-trigger-type.png](./img//02-workflow-trigger-type.png)
+![./img/02-workflow-trigger-type.png](./img/02-workflow-trigger-type.png)
 
 Click the `+` button to add a new action to the Workflow.
 
-![./img//02-add-first-action.png](./img//02-add-first-action.png)
+![./img/02-add-first-action.png](./img/02-add-first-action.png)
 
 Choose action: choose `Run JavaScript` action type.
 
-![./img//02-set-parameters-choose-action.png](./img//02-set-parameters-choose-action.png)
+![./img/02-set-parameters-choose-action.png](./img/02-set-parameters-choose-action.png)
 
 
-#### `js_set_parameters`
+### `js_set_parameters`
 
 Name:
 ```text
@@ -78,6 +78,7 @@ export default async function () {
 ```
 
 Set the value of the missing variables:
+
 - INITIALS: your initials
 - LOCATION: your location
 - TENURE: the number of years you've been with the company
@@ -85,9 +86,9 @@ Set the value of the missing variables:
     * Navigate in your incognito browser window to https://webhook.site/ and copy your unique URL
       * The unique URL is located at the top of the page, not in your browser's address bar
 
-![./img//02-set-parameters-input.png](./img//02-set-parameters-input.png)
+![./img/02-set-parameters-input.png](./img/02-set-parameters-input.png)
 
-#### `js_output_parameters`
+### `js_output_parameters`
 
 Name:
 ```text
@@ -136,15 +137,15 @@ export default async function ({ execution_id }) {
 
 Click on the task's `Conditions` tab.  Set the `Run this task if`: `js_set_parameters` is `success`
 
-![./img//02-output-parameters-input.png](./img//02-output-parameters-input.png)
+![./img/02-output-parameters-input.png](./img/02-output-parameters-input.png)
 
 Run the workflow and validate the results
 
-![./img//02-output-parameters-results.png](./img//02-output-parameters-results.png)
+![./img/02-output-parameters-results.png](./img/02-output-parameters-results.png)
 
 ## Fetch API
 
-#### `js_fetch_status_io`
+### `js_fetch_status_io`
 
 Name:
 ```text
@@ -218,10 +219,10 @@ Set the `And custom condition was met`:
 {{ result("js_set_parameters")['STATUS_URL'] is defined }}
 ```
 
-![./img//02-fetch-status-io-input.png](./img//02-fetch-status-io-input.png)
+![./img/02-fetch-status-io-input.png](./img/02-fetch-status-io-input.png)
 
 ---
-#### `js_fetch_webhook_site`
+### `js_fetch_webhook_site`
 
 Name:
 ```text
@@ -294,15 +295,15 @@ Set the `And custom condition was met`:
 {{ result("js_fetch_status_io")['result'] is defined }}
 ```
 
-![./img//02-fetch-webhook-site-input.png](./img//02-fetch-webhook-site-input.png)
+![./img/02-fetch-webhook-site-input.png](./img/02-fetch-webhook-site-input.png)
 
 Run the workflow and validate the results
 
-![./img//02-fetch-webhook-site-results.png](./img//02-fetch-webhook-site-results.png)
+![./img/02-fetch-webhook-site-results.png](./img/02-fetch-webhook-site-results.png)
 
 ## Looping Tasks
 
-#### `dql_query_bizevents`
+### `dql_query_bizevents`
 Name:
 ```text
 dql_query_bizevents
@@ -332,10 +333,10 @@ fetch bizevents, from: now()-2h
 
 Click on the task's `Conditions` tab.  Set the `Run this task if`: `js_fetch_status_io` is `success`
 
-![./img//02-query-bizevents-input.png](./img//02-query-bizevents-input.png)
+![./img/02-query-bizevents-input.png](./img/02-query-bizevents-input.png)
 
 ---
-#### `js_loop_over_results`
+### `js_loop_over_results`
 Name:
 ```text
 js_loop_over_results
@@ -427,7 +428,7 @@ export default async function ({ execution_id, action_execution_id }) {
 }
 ```
 
-![./img//02-loop-results-input.png](./img//02-loop-results-input.png)
+![./img/02-loop-results-input.png](./img/02-loop-results-input.png)
 
 Click on the task's `Conditions` tab.  Set the `Run this task if`: `dql_query_bizevents` is `success`
 
@@ -453,7 +454,7 @@ Set the `List`:
 {{ result("dql_query_bizevents").records }}
 ```
 
-![./img//02-loop-results-conditions-options.png](./img//02-loop-results-conditions-options.png)
+![./img/02-loop-results-conditions-options.png](./img/02-loop-results-conditions-options.png)
 
 The loop item is access in our JS code with the following snippet:
 ```
@@ -472,11 +473,12 @@ console.log(record); // for example
 
 Run the workflow and validate the results
 
-![./img//02-loop-results-output-results.png](./img//02-loop-results-output-results.png)
+![./img/02-loop-results-output-results.png](./img/02-loop-results-output-results.png)
 
 ## Continue
 
 In the next section, we'll learn to ingest data and create alerts.
+
 <div class="grid cards" markdown>
-- [Continue to Ingest and Alert:octicons-arrow-right-24:](05_ingest_and_alert.md)
+- [Continue to Ingest and Alert:octicons-arrow-right-24:](04_ingest_and_alert.md)
 </div>
