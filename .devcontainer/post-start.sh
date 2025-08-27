@@ -4,6 +4,7 @@
 ##  such as exposing the application.
 ##############################################################
 #Load the functions into the shell
-source /workspaces/$RepositoryName/.devcontainer/util/functions.sh
+source .devcontainer/util/source_framework.sh
 
-printInfoSection "Your dev.container finished creating"
+
+printInfoSection "Your dev.container finished starting up"
