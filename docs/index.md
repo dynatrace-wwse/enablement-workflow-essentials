@@ -1,4 +1,7 @@
 --8<-- "snippets/send-bizevent/index.js"
+
+--8<-- "snippets/dt-enablement.md"
+
 # Enablement Workflow Essentials
 
 --8<-- "snippets/disclaimer.md"
