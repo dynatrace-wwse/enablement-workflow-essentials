@@ -171,6 +171,11 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
@@ -718,64 +723,64 @@
 <h3 id="workflow-parameters-set-parameter-task">Workflow Parameters: Set Parameter Task<a class="headerlink" href="#workflow-parameters-set-parameter-task" title="Permanent link">#</a></h3>
 <p>The first task of a workflow should be a parameter task that defines the parameters/variables used by the remainder of tasks in the workflow.  Environment and deployment unique settings, like URLs, entities, etc. should be set as parameters in this task so that no other changes need to be made within the workflow when it is copied/cloned/moved for other uses.</p>
 <p>The parameters are specified in a JSON object variable and then returned during task execution to be used by remaining tasks.  Include a description/purpose for the parameter and provide an example value.</p>
-<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">PARAMETERS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// PARAMETER - description of the parameter</span>
-<span class="w">    </span><span class="nx">PARAMETER</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;VALUE&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// i.e. PARAMETER: &quot;VALUE&quot; - example value of the parameter</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">PARAMETERS</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">PARAMETERS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="c1">// PARAMETER - description of the parameter</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nx">PARAMETER</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;VALUE&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// i.e. PARAMETER: &quot;VALUE&quot; - example value of the parameter</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">PARAMETERS</span><span class="p">;</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">}</span>
+</span></code></pre></div>
 <h3 id="workflow-parameters-using-parameters-from-parameter-task">Workflow Parameters: Using Parameters from Parameter Task<a class="headerlink" href="#workflow-parameters-using-parameters-from-parameter-task" title="Permanent link">#</a></h3>
 <p>Tasks executed after the parameter task can access the parameters and values from the task result.</p>
 <p>Within the JS code task, the <code>execution</code> class must be used from the <code>dynatrace-sdk/automation-utils</code> package.  Access the parameter from the task result and assign the value to a new variable.</p>
 <p>Within other task types (non JS code), the parameters can be accessed via Jinja expressions.</p>
 <p><code>{{ result("js_set_parameters")['PARAMETER NAME'] }}</code></p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">execution</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@dynatrace-sdk/automation-utils&#39;</span><span class="p">;</span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">PARAMETERS_TASK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;js_set_parameters&#39;</span><span class="p">;</span>
-
-<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="nx">execution_id</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">  </span><span class="c1">// get parameters from previous tasks</span>
-<span class="w">  </span><span class="c1">// execution</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">ex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">execution</span><span class="p">(</span><span class="nx">execution_id</span><span class="p">);</span>
-<span class="w">  </span><span class="c1">// parameters</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">parameters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">ex</span><span class="p">.</span><span class="nx">result</span><span class="p">(</span><span class="nx">PARAMETERS_TASK</span><span class="p">);</span>
-
-<span class="w">  </span><span class="c1">// declare new variables to easily access the parameters within this task</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">PARAMETER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">parameters</span><span class="p">[</span><span class="s1">&#39;PARAMETER&#39;</span><span class="p">];</span>
-
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">execution</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@dynatrace-sdk/automation-utils&#39;</span><span class="p">;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">PARAMETERS_TASK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;js_set_parameters&#39;</span><span class="p">;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="nx">execution_id</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="c1">// get parameters from previous tasks</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="c1">// execution</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">ex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">execution</span><span class="p">(</span><span class="nx">execution_id</span><span class="p">);</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="c1">// parameters</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">parameters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">ex</span><span class="p">.</span><span class="nx">result</span><span class="p">(</span><span class="nx">PARAMETERS_TASK</span><span class="p">);</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="c1">// declare new variables to easily access the parameters within this task</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">PARAMETER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">parameters</span><span class="p">[</span><span class="s1">&#39;PARAMETER&#39;</span><span class="p">];</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="p">}</span>
+</span></code></pre></div>
 <h3 id="app-environment-utilities">App Environment Utilities<a class="headerlink" href="#app-environment-utilities" title="Permanent link">#</a></h3>
 <p>There are app environment utilities available so that static coding of these values within the workflow are not necessary.</p>
 <p><a href="https://developer.dynatrace.com/develop/sdks/app-environment/" target="_blank">https://developer.dynatrace.com/develop/sdks/app-environment/</a></p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getCurrentUserDetails</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@dynatrace-sdk/app-environment&#39;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getEnvironmentId</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@dynatrace-sdk/app-environment&#39;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getEnvironmentUrl</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@dynatrace-sdk/app-environment&#39;</span><span class="p">;</span>
-
-<span class="c1">// import all 3</span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getCurrentUserDetails</span><span class="p">,</span><span class="nx">getEnvironmentId</span><span class="p">,</span><span class="nx">getEnvironmentUrl</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@dynatrace-sdk/app-environment&#39;</span><span class="p">;</span>
-
-<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">  </span><span class="c1">// get current workflow execution user details</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">user_details</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getCurrentUserDetails</span><span class="p">();</span><span class="w"> </span><span class="c1">// returns id, name, email in JSON format</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">user_email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">user_details</span><span class="p">[</span><span class="s1">&#39;email&#39;</span><span class="p">];</span><span class="w"> </span><span class="c1">// get the user email address</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">user_details</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">];</span><span class="w"> </span><span class="c1">// get the user id (UUID)</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">user_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">user_details</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">];</span><span class="w"> </span><span class="c1">// get the user name</span>
-
-<span class="w">  </span><span class="c1">// get current workflow execution environment id (abc123)</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">environment_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getEnvironmentId</span><span class="p">();</span>
-
-<span class="w">  </span><span class="c1">// get current workflow execution environment URL (abc123.apps.dynatrace.com)</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">environment_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getEnvironmentUrl</span><span class="p">();</span>
-
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getCurrentUserDetails</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@dynatrace-sdk/app-environment&#39;</span><span class="p">;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getEnvironmentId</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@dynatrace-sdk/app-environment&#39;</span><span class="p">;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getEnvironmentUrl</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@dynatrace-sdk/app-environment&#39;</span><span class="p">;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1">// import all 3</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getCurrentUserDetails</span><span class="p">,</span><span class="nx">getEnvironmentId</span><span class="p">,</span><span class="nx">getEnvironmentUrl</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@dynatrace-sdk/app-environment&#39;</span><span class="p">;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="c1">// get current workflow execution user details</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">user_details</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getCurrentUserDetails</span><span class="p">();</span><span class="w"> </span><span class="c1">// returns id, name, email in JSON format</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">user_email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">user_details</span><span class="p">[</span><span class="s1">&#39;email&#39;</span><span class="p">];</span><span class="w"> </span><span class="c1">// get the user email address</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">user_details</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">];</span><span class="w"> </span><span class="c1">// get the user id (UUID)</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">user_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">user_details</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">];</span><span class="w"> </span><span class="c1">// get the user name</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">  </span><span class="c1">// get current workflow execution environment id (abc123)</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">environment_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getEnvironmentId</span><span class="p">();</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">  </span><span class="c1">// get current workflow execution environment URL (abc123.apps.dynatrace.com)</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">environment_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getEnvironmentUrl</span><span class="p">();</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="p">}</span>
+</span></code></pre></div>
 <h3 id="working-with-loop-actions">Working with Loop Actions<a class="headerlink" href="#working-with-loop-actions" title="Permanent link">#</a></h3>
 <p>Workflow actions can be configured to run as loops with an array of input data as loop items.</p>
 <p>In the action options, an array (typically a result from a previous task) is provided as input. A loop item variable name is also provided for accessing the array element during each loop execution.</p>
@@ -783,39 +788,39 @@
 <p>Access the loop item from <code>actionExecution().loopItem['loop item variable name']</code>.</p>
 <p>Within other task types (non JS code), the parameters can be accessed via Jinja expressions.</p>
 <p><code>{{ _.loop item variable name }}</code></p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">execution</span><span class="p">,</span><span class="w"> </span><span class="nx">actionExecution</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@dynatrace-sdk/automation-utils&#39;</span><span class="p">;</span>
-
-<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="nx">execution_id</span><span class="p">,</span><span class="w"> </span><span class="nx">action_execution_id</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">  </span><span class="c1">// execution</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">ex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">execution</span><span class="p">(</span><span class="nx">execution_id</span><span class="p">);</span>
-
-<span class="w">  </span><span class="c1">// get the loop item for the action execution</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">actionEx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">actionExecution</span><span class="p">(</span><span class="nx">action_execution_id</span><span class="p">);</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">loop_item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">actionEx</span><span class="p">.</span><span class="nx">loopItem</span><span class="p">[</span><span class="s1">&#39;item&#39;</span><span class="p">];</span><span class="w"> </span><span class="c1">// Loop item variable name from task options</span>
-
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">execution</span><span class="p">,</span><span class="w"> </span><span class="nx">actionExecution</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@dynatrace-sdk/automation-utils&#39;</span><span class="p">;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="nx">execution_id</span><span class="p">,</span><span class="w"> </span><span class="nx">action_execution_id</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="c1">// execution</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">ex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">execution</span><span class="p">(</span><span class="nx">execution_id</span><span class="p">);</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="c1">// get the loop item for the action execution</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">actionEx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">actionExecution</span><span class="p">(</span><span class="nx">action_execution_id</span><span class="p">);</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">loop_item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">actionEx</span><span class="p">.</span><span class="nx">loopItem</span><span class="p">[</span><span class="s1">&#39;item&#39;</span><span class="p">];</span><span class="w"> </span><span class="c1">// Loop item variable name from task options</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="p">}</span>
+</span></code></pre></div>
 <h3 id="timed-wait-within-workflow-and-action-execution">Timed Wait within Workflow and Action Execution<a class="headerlink" href="#timed-wait-within-workflow-and-action-execution" title="Permanent link">#</a></h3>
 <p>There may be a need to perform a timed wait within the execution of a workflow or within a JS code action.  TypeScript provides the capabilities to perform a sleep for a specified amount of time.  The action and the workflow execution will be paused during this time.</p>
 <p>Additionally, workflow actions can be configured to 'Wait before' for a specified amount of time.  The entire workflow action will wait that amoutn of time before beginning execution.</p>
-<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">sleep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">waitTime</span><span class="o">:</span><span class="w"> </span><span class="nx">number</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span>
-<span class="w">  </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span><span class="w"> </span><span class="p">=&gt;</span>
-<span class="w">    </span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span><span class="w"> </span><span class="nx">waitTime</span><span class="p">));</span>
-
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">waitTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="c1">// 30,000ms = 30 seconds to sleep</span>
-<span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">sleep</span><span class="p">(</span><span class="mf">30000</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Finished Waiting&quot;</span><span class="p">);</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Waiting 30 Seconds&quot;</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">waitTime</span><span class="p">();</span>
-
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">sleep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">waitTime</span><span class="o">:</span><span class="w"> </span><span class="nx">number</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span><span class="w"> </span><span class="p">=&gt;</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span><span class="w"> </span><span class="nx">waitTime</span><span class="p">));</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">waitTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span><span class="c1">// 30,000ms = 30 seconds to sleep</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">sleep</span><span class="p">(</span><span class="mf">30000</span><span class="p">);</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Finished Waiting&quot;</span><span class="p">);</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Waiting 30 Seconds&quot;</span><span class="p">);</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">  </span><span class="nx">waitTime</span><span class="p">();</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="p">}</span>
+</span></code></pre></div>
 <h3 id="getting-external-data-via-https-with-fetch">Getting External Data via HTTP(S) with fetch()<a class="headerlink" href="#getting-external-data-via-https-with-fetch" title="Permanent link">#</a></h3>
 <p>Workflows can be used to retrieve external data from systems accessible via HTTP(S) and return JSON payloads.</p>
 <p>The <code>fetch()</code> API can be used to execute HTTP(S) calls and retrieve JSON responses.</p>
@@ -823,28 +828,28 @@
 <p>In order to access external systems, you must configure the domain in the allow list for outbound connections.</p>
 <p><a href="https://developer.dynatrace.com/develop/app-functions/allow-outbound-connections/" target="_blank">https://developer.dynatrace.com/develop/app-functions/allow-outbound-connections/</a></p>
 <p>For HTTPS calls, the URL/domain/host must have a valid signed SSL certificate or the call will fail.  There is no way to bypass the SSL certificate check due to data privacy and security standards.</p>
-<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">  </span><span class="c1">// set the fetch() api parameters [method, headers, body]</span>
-<span class="w">  </span><span class="c1">// https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GET&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="s1">&#39;accept&#39;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">};</span>
-
-<span class="w">  </span><span class="c1">// set the url for the fetch call</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;http://hostname:port/uri&quot;</span>
-<span class="w">  </span><span class="c1">// make the fetch call, passing the url and options, capture the response</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span><span class="nx">options</span><span class="p">);</span>
-<span class="w">  </span><span class="c1">// parse the json response as a new variable</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">response_json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
-<span class="w">  </span><span class="c1">// return the json response</span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">response_json</span><span class="p">;</span>
-
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="c1">// set the fetch() api parameters [method, headers, body]</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="c1">// https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GET&quot;</span><span class="p">,</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">      </span><span class="s1">&#39;accept&#39;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span><span class="p">};</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">  </span><span class="c1">// set the url for the fetch call</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;http://hostname:port/uri&quot;</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">  </span><span class="c1">// make the fetch call, passing the url and options, capture the response</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span><span class="nx">options</span><span class="p">);</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">  </span><span class="c1">// parse the json response as a new variable</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">response_json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">  </span><span class="c1">// return the json response</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">response_json</span><span class="p">;</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="p">}</span>
+</span></code></pre></div>
 <h3 id="sending-data-to-external-systems-via-https-with-fetch">Sending Data to External Systems via HTTP(S) with fetch()<a class="headerlink" href="#sending-data-to-external-systems-via-https-with-fetch" title="Permanent link">#</a></h3>
 <p>Workflows can be used to send data (preferably JSON payload) to external systems accessible via HTTP(S).</p>
 <p>The <code>fetch()</code> API can be used to execute HTTP(S) calls and send (JSON) payloads.</p>
@@ -852,33 +857,33 @@
 <p>In order to access external systems, you must configure the domain in the allow list for outbound connections.</p>
 <p><a href="https://developer.dynatrace.com/develop/app-functions/allow-outbound-connections/" target="_blank">https://developer.dynatrace.com/develop/app-functions/allow-outbound-connections/</a></p>
 <p>For HTTPS calls, the URL/domain/host must have a valid signed SSL certificate or the call will fail.  There is no way to bypass the SSL certificate check due to data privacy and security standards.</p>
-<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">  </span><span class="c1">// set the fetch() api parameters [method, headers, body]</span>
-<span class="w">  </span><span class="c1">// https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">json_body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">key</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;value&quot;</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;POST&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="s1">&#39;content-type&#39;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">json_body</span><span class="p">)</span><span class="w"> </span><span class="c1">// convert json object to json string</span>
-<span class="w">  </span><span class="p">};</span>
-
-<span class="w">  </span><span class="c1">// set the url for the fetch call</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;http://hostname:port/uri&quot;</span>
-<span class="w">  </span><span class="c1">// make the fetch call, passing the url and options, capture the response</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span><span class="nx">options</span><span class="p">);</span>
-<span class="w">  </span><span class="c1">// capture the response code</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">response_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span>
-
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">response_status</span><span class="p">;</span>
-
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="c1">// set the fetch() api parameters [method, headers, body]</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="c1">// https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">json_body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="nx">key</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;value&quot;</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">      </span><span class="s1">&#39;content-type&#39;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">    </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">json_body</span><span class="p">)</span><span class="w"> </span><span class="c1">// convert json object to json string</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">  </span><span class="p">};</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">  </span><span class="c1">// set the url for the fetch call</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;http://hostname:port/uri&quot;</span>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">  </span><span class="c1">// make the fetch call, passing the url and options, capture the response</span>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span><span class="nx">options</span><span class="p">);</span>
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">  </span><span class="c1">// capture the response code</span>
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">response_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span>
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">response_status</span><span class="p">;</span>
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="p">}</span>
+</span></code></pre></div>
 <h3 id="javascript-runtime-dynatrace-sdk-for-typescript">JavaScript Runtime: Dynatrace SDK for TypeScript<a class="headerlink" href="#javascript-runtime-dynatrace-sdk-for-typescript" title="Permanent link">#</a></h3>
 <p>The SDK for TypeScript provides a TypeScript API for Dynatrace platform services and Dynatrace AppEngine functionality.</p>
 <p><a href="https://developer.dynatrace.com/develop/sdks/" target="_blank">https://developer.dynatrace.com/develop/sdks/</a></p>
@@ -890,97 +895,97 @@
 <h3 id="executing-dql-queries-within-js-code-actions">Executing DQL Queries within JS Code Actions<a class="headerlink" href="#executing-dql-queries-within-js-code-actions" title="Permanent link">#</a></h3>
 <p>While there is a DQL workflow action type, it may be beneficial to execute a DQL query from within a JS code action.  This can be accomplished using the <code>queryExecutionClient</code> from the <code>dynatrace-sdk/client-query</code> package.</p>
 <p><a href="https://developer.dynatrace.com/develop/sdks/client-query/#queryexecute" target="_blank">https://developer.dynatrace.com/develop/sdks/client-query/#queryexecute</a></p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">queryExecutionClient</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dynatrace-sdk/client-query&quot;</span><span class="p">;</span>
-
-<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">  </span><span class="c1">// build the DQL query</span>
-<span class="w">  </span><span class="c1">// https://developer.dynatrace.com/develop/sdks/client-query/#queryexecute</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">60</span><span class="p">;</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;timeseries metric = avg(&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">metric</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;), by: {dimension}, from: now()-5m\</span>
-<span class="s1">                  | filter dimension == &quot;&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">dimension</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;&quot;\</span>
-<span class="s1">                  | summarize avg = avg(arrayAvg(metric))&#39;</span><span class="p">;</span>
-
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">query_response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">queryExecutionClient</span><span class="p">.</span><span class="nx">queryExecute</span><span class="p">({</span><span class="w"> </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">query</span><span class="p">,</span><span class="w"> </span><span class="nx">requestTimeoutMilliseconds</span><span class="o">:</span><span class="w"> </span><span class="nx">timeout</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1000</span><span class="p">,</span><span class="w"> </span><span class="nx">fetchTimeoutSeconds</span><span class="o">:</span><span class="w"> </span><span class="nx">timeout</span><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="p">});</span>
-
-<span class="w">  </span><span class="c1">// check if the query result is empty (unexpectedly)</span>
-<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="nx">query_response</span><span class="p">.</span><span class="nx">result</span><span class="p">.</span><span class="nx">records</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Query returned an empty result unexpectedly!&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">query_response</span><span class="p">.</span><span class="nx">result</span><span class="p">;</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">query_response</span><span class="p">.</span><span class="nx">result</span><span class="p">;</span>
-
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">queryExecutionClient</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dynatrace-sdk/client-query&quot;</span><span class="p">;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span><span class="c1">// build the DQL query</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">  </span><span class="c1">// https://developer.dynatrace.com/develop/sdks/client-query/#queryexecute</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">60</span><span class="p">;</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;timeseries metric = avg(&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">metric</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;), by: {dimension}, from: now()-5m\</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="s1">                  | filter dimension == &quot;&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">dimension</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;&quot;\</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="s1">                  | summarize avg = avg(arrayAvg(metric))&#39;</span><span class="p">;</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">query_response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">queryExecutionClient</span><span class="p">.</span><span class="nx">queryExecute</span><span class="p">({</span><span class="w"> </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">query</span><span class="p">,</span><span class="w"> </span><span class="nx">requestTimeoutMilliseconds</span><span class="o">:</span><span class="w"> </span><span class="nx">timeout</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1000</span><span class="p">,</span><span class="w"> </span><span class="nx">fetchTimeoutSeconds</span><span class="o">:</span><span class="w"> </span><span class="nx">timeout</span><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="p">});</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">  </span><span class="c1">// check if the query result is empty (unexpectedly)</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="nx">query_response</span><span class="p">.</span><span class="nx">result</span><span class="p">.</span><span class="nx">records</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Query returned an empty result unexpectedly!&quot;</span><span class="p">);</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">query_response</span><span class="p">.</span><span class="nx">result</span><span class="p">;</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">query_response</span><span class="p">.</span><span class="nx">result</span><span class="p">;</span>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="p">}</span>
+</span></code></pre></div>
 <h3 id="credential-vault-access-via-sdk">Credential Vault Access via SDK<a class="headerlink" href="#credential-vault-access-via-sdk" title="Permanent link">#</a></h3>
 <p>During workflow execution, integration with external systems may require credentials.  Those credentials should be accessed securely from the credential vault and not static coded into the workflow itself.</p>
 <p>Credentials can be accessed using <code>credentialVaultClient</code> from the <code>dynatrace-sdk/client-classic-environment-v2</code> package.</p>
 <p>When a credential is obtained, it contains the <code>token</code> value or the <code>username</code> and <code>password</code> values respectively.</p>
 <p><a href="https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#getcredentialsdetails" target="_blank">https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#getcredentialsdetails</a></p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">credentialVaultClient</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@dynatrace-sdk/client-classic-environment-v2&#39;</span><span class="p">;</span>
-
-<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">  </span><span class="c1">// CREDENTIAL - the credential vault entity ID</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">CREDENTIAL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;CREDENTIALS_VAULT-ABC1235EEF8F36FD&quot;</span><span class="p">;</span>
-
-<span class="w">  </span><span class="c1">// get the credentials from the credential vault using the SDK</span>
-<span class="w">  </span><span class="c1">// https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#getcredentialsdetails</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">await</span><span class="w"> </span><span class="nx">credentialVaultClient</span><span class="p">.</span><span class="nx">getCredentialsDetails</span><span class="p">({</span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">CREDENTIAL</span><span class="p">}));</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">data</span><span class="p">[</span><span class="s1">&#39;token&#39;</span><span class="p">];</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">data</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">];</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">data</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">];</span>
-
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">credentialVaultClient</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@dynatrace-sdk/client-classic-environment-v2&#39;</span><span class="p">;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="c1">// CREDENTIAL - the credential vault entity ID</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">CREDENTIAL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;CREDENTIALS_VAULT-ABC1235EEF8F36FD&quot;</span><span class="p">;</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">  </span><span class="c1">// get the credentials from the credential vault using the SDK</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">  </span><span class="c1">// https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#getcredentialsdetails</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">await</span><span class="w"> </span><span class="nx">credentialVaultClient</span><span class="p">.</span><span class="nx">getCredentialsDetails</span><span class="p">({</span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">CREDENTIAL</span><span class="p">}));</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">data</span><span class="p">[</span><span class="s1">&#39;token&#39;</span><span class="p">];</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">data</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">];</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">data</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">];</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="p">}</span>
+</span></code></pre></div>
 <h3 id="metric-ingest-via-sdk">Metric Ingest via SDK<a class="headerlink" href="#metric-ingest-via-sdk" title="Permanent link">#</a></h3>
 <p>Data ingest is a common use case for workflows.  Logs, traces, events, and metrics can all be ingested during workflow execution.</p>
 <p>Metric ingestion is possible with the <code>metricsClient</code> from the <code>dynatrace-sdk/client-classic-environment-v2</code> package.</p>
 <p><a href="https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#ingest-1" target="_blank">https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#ingest-1</a></p>
 <p>The metric ingest utilizes the metric line protocol format:</p>
 <p><a href="https://docs.dynatrace.com/docs/extend-dynatrace/extend-metrics/reference/metric-ingestion-protocol" target="_blank">https://docs.dynatrace.com/docs/extend-dynatrace/extend-metrics/reference/metric-ingestion-protocol</a></p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">metricsClient</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dynatrace-sdk/client-classic-environment-v2&quot;</span><span class="p">;</span>
-
-<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">  </span><span class="c1">// build the line_protocol string to ingest the metric data point</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">line_protocol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;metric&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;,dimension-name=dimension-value&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39; value&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// mymetric,team=teamA,businessapp=hr 1000</span>
-
-<span class="w">  </span><span class="c1">// ingest the metric data point using the SDK</span>
-<span class="w">  </span><span class="c1">// https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#ingest-1</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">metricsClient</span><span class="p">.</span><span class="nx">ingest</span><span class="p">({</span>
-<span class="w">    </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nx">line_protocol</span><span class="p">,</span>
-<span class="w">  </span><span class="p">});</span>
-
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">metricsClient</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dynatrace-sdk/client-classic-environment-v2&quot;</span><span class="p">;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span><span class="c1">// build the line_protocol string to ingest the metric data point</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">line_protocol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;metric&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;,dimension-name=dimension-value&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39; value&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// mymetric,team=teamA,businessapp=hr 1000</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">  </span><span class="c1">// ingest the metric data point using the SDK</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">  </span><span class="c1">// https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#ingest-1</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">metricsClient</span><span class="p">.</span><span class="nx">ingest</span><span class="p">({</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">    </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nx">line_protocol</span><span class="p">,</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">  </span><span class="p">});</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="p">}</span>
+</span></code></pre></div>
 <h3 id="event-ingestion-and-alerting-via-sdk">Event Ingestion (and Alerting) via SDK<a class="headerlink" href="#event-ingestion-and-alerting-via-sdk" title="Permanent link">#</a></h3>
 <p>Generating alerts (events, problem events) is a common use case for workflows.</p>
 <p>Events can be ingested/created using the <code>eventsClient</code> from the <code>dynatrace-sdk/client-classic-environment-v2</code> package.</p>
 <p><a href="https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#createevent" target="_blank">https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#createevent</a></p>
 <p>There multiple event types that can be created via the <code>EventIngestEventType</code> class:</p>
 <p><a href="https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#eventingesteventtype" target="_blank">https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#eventingesteventtype</a></p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">eventsClient</span><span class="p">,</span><span class="w"> </span><span class="nx">EventIngestEventType</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dynatrace-sdk/client-classic-environment-v2&quot;</span><span class="p">;</span>
-
-<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">  </span><span class="c1">// https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#createevent</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">event_response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">eventsClient</span><span class="p">.</span><span class="nx">createEvent</span><span class="p">({</span>
-<span class="w">    </span><span class="c1">// https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#eventingest</span>
-<span class="w">    </span><span class="nx">body</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">eventType</span><span class="o">:</span><span class="w"> </span><span class="nx">EventIngestEventType</span><span class="p">.</span><span class="nx">CustomAlert</span><span class="p">,</span><span class="w"> </span><span class="c1">// https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#eventingesteventtype</span>
-<span class="w">      </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Event Title&#39;</span><span class="p">,</span>
-<span class="w">      </span><span class="nx">timeout</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span>
-<span class="w">      </span><span class="nx">properties</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s1">&#39;property-1&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">value</span><span class="p">,</span>
-<span class="w">        </span><span class="s1">&#39;property-2&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;value&#39;</span><span class="p">,</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">});</span>
-
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">eventsClient</span><span class="p">,</span><span class="w"> </span><span class="nx">EventIngestEventType</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dynatrace-sdk/client-classic-environment-v2&quot;</span><span class="p">;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">  </span><span class="c1">// https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#createevent</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">event_response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">eventsClient</span><span class="p">.</span><span class="nx">createEvent</span><span class="p">({</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="c1">// https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#eventingest</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="nx">body</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">      </span><span class="nx">eventType</span><span class="o">:</span><span class="w"> </span><span class="nx">EventIngestEventType</span><span class="p">.</span><span class="nx">CustomAlert</span><span class="p">,</span><span class="w"> </span><span class="c1">// https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#eventingesteventtype</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">      </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Event Title&#39;</span><span class="p">,</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">      </span><span class="nx">timeout</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">      </span><span class="nx">properties</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">        </span><span class="s1">&#39;property-1&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">value</span><span class="p">,</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">        </span><span class="s1">&#39;property-2&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;value&#39;</span><span class="p">,</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">  </span><span class="p">});</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="p">}</span>
+</span></code></pre></div>
 <h2 id="continue">Continue<a class="headerlink" href="#continue" title="Permanent link">#</a></h2>
 <p>In the next section, we'll cover environment clean up.</p>
 <div class="grid cards">
@@ -1005,6 +1010,8 @@
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
@@ -1017,6 +1024,46 @@
       </main>
       
         <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../05_third_party_integration/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 5. Third Party Integration">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                5. Third Party Integration
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../cleanup/" class="md-footer__link md-footer__link--next" aria-label="Next: 7. Cleanup">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                7. Cleanup
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -1040,7 +1087,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.annotate", "navigation.instant", "navigation.tracking", "navigation.top", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.annotate", "content.tabs.link", "navigation.instant", "navigation.tracking", "navigation.top", "navigation.sections", "navigation.footer", "toc.follow", "search.highlight", "search.suggest", "search.share"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
