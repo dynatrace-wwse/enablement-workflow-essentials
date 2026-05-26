@@ -1,4 +1,3 @@
---8<-- "snippets/send-bizevent/06_code_snippets.js"
 
 # Code Snippets
 

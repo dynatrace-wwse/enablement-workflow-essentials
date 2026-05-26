@@ -1,4 +1,3 @@
---8<-- "snippets/send-bizevent/03_workflow_essentials.js"
 
 # Workflow Essentials
 

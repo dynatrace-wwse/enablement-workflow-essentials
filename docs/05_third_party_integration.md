@@ -1,4 +1,3 @@
---8<-- "snippets/send-bizevent/05_third_party_integration.js"
 
 # Third Party Integration
 

@@ -1,4 +1,3 @@
---8<-- "snippets/send-bizevent/04_ingest_and_alert.js"
 
 # Ingest and Alert
 
