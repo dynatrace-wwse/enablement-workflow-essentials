@@ -851,16 +851,16 @@ Description:
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  let PARAMETERS = {
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    // EASYTRAVEL_URL - the URL to the easytravel rest API to search for journeys and receive JSON payload
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    EASYTRAVEL_URL: &quot;https://raw.githubusercontent.com/dynatrace-wwse/enablement-workflow-essentials/refs/heads/main/assets/app-data/easytravel_journey.json&quot;, // i.e. EASYTRAVEL_URL: &quot;https://raw.githubusercontent.com/dynatrace-wwse/enablement-workflow-essentials/refs/heads/main/assets/app-data/easytravel_journey.json&quot;
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    EASYTRAVEL_URL: "https://raw.githubusercontent.com/dynatrace-wwse/enablement-workflow-essentials/refs/heads/main/assets/app-data/easytravel_journey.json", // i.e. EASYTRAVEL_URL: "https://raw.githubusercontent.com/dynatrace-wwse/enablement-workflow-essentials/refs/heads/main/assets/app-data/easytravel_journey.json"
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
 </span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    // METRIC - the unique metric id to ingest a data point for the easytravel journey amount
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    METRIC: &quot;custom.workflow_essentials.easytravel.journey_amount&quot;, // i.e. METRIC: &quot;custom.workflow_essentials.easytravel.journey_amount&quot;
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    METRIC: "custom.workflow_essentials.easytravel.journey_amount", // i.e. METRIC: "custom.workflow_essentials.easytravel.journey_amount"
 </span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
 </span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    // CREDENTIAL - the credential vault entity ID that holds the Dynatrace API token value with metrics.ingest scope
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    CREDENTIAL: &quot;&quot;, // i.e. CREDENTIAL: &quot;CREDENTIALS_VAULT-123ABCF8F36FD&quot;
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    CREDENTIAL: "", // i.e. CREDENTIAL: "CREDENTIALS_VAULT-123ABCF8F36FD"
 </span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
 </span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    // INGEST_URL - the URL of the dynatrace metric ingest API endpoint
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    INGEST_URL: &quot;https://&lt;tenant-id&gt;.live.dynatrace.com/api/v2/metrics/ingest&quot;, // i.e. INGEST_URL: &quot;https://abc123.live.dynatrace.com/api/v2/metrics/ingest&quot;
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    INGEST_URL: "https://&lt;tenant-id&gt;.live.dynatrace.com/api/v2/metrics/ingest", // i.e. INGEST_URL: "https://abc123.live.dynatrace.com/api/v2/metrics/ingest"
 </span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
 </span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>    // THRESHOLD - the threshold amount to trigger an alert event
 </span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>    THRESHOLD: 500, // i.e. THRESHOLD: 500; trigger an alert event if the average journey amount is above 500.00
@@ -900,7 +900,7 @@ Description:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>GET
 </span></code></pre></div></p>
 <p>URL:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>{{ result(&quot;js_set_parameters&quot;)[&#39;EASYTRAVEL_URL&#39;] }}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>{{ result("js_set_parameters")['EASYTRAVEL_URL'] }}
 </span></code></pre></div></p>
 <p>Headers:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>accept  application/json
@@ -913,13 +913,13 @@ Description:
 </span></code></pre></div></p>
 <p>Click on the task's <code>Conditions</code> tab.  Set the <code>Run this task if</code>: <code>js_set_parameters</code> is <code>success</code></p>
 <p>Additionally, we only want this task to run if the <code>EASYTRAVEL_URL</code> parameter is defined in the previous task.  We can access the result using a Jinja expression:
-<div class="language-js highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="mf">1.</span><span class="w"> </span><span class="p">{{</span><span class="w"> </span><span class="nx">result</span><span class="p">(</span><span class="s2">&quot;task_name&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">}}</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="mf">2.</span><span class="w"> </span><span class="p">{{</span><span class="w"> </span><span class="nx">result</span><span class="p">(</span><span class="s2">&quot;task_name&quot;</span><span class="p">)[</span><span class="s1">&#39;result_attribute_name&#39;</span><span class="p">]</span><span class="w"> </span><span class="p">}}</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="mf">3.</span><span class="w"> </span><span class="p">{{</span><span class="w"> </span><span class="nx">result</span><span class="p">(</span><span class="s2">&quot;task_name&quot;</span><span class="p">)[</span><span class="s1">&#39;result_attribute_name&#39;</span><span class="p">]</span><span class="w"> </span><span class="nx">condition</span><span class="w"> </span><span class="nx">expression</span><span class="w"> </span><span class="p">}}</span>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="mf">1.</span><span class="w"> </span><span class="p">{{</span><span class="w"> </span><span class="nx">result</span><span class="p">(</span><span class="s2">"task_name"</span><span class="p">)</span><span class="w"> </span><span class="p">}}</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="mf">2.</span><span class="w"> </span><span class="p">{{</span><span class="w"> </span><span class="nx">result</span><span class="p">(</span><span class="s2">"task_name"</span><span class="p">)[</span><span class="s1">'result_attribute_name'</span><span class="p">]</span><span class="w"> </span><span class="p">}}</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="mf">3.</span><span class="w"> </span><span class="p">{{</span><span class="w"> </span><span class="nx">result</span><span class="p">(</span><span class="s2">"task_name"</span><span class="p">)[</span><span class="s1">'result_attribute_name'</span><span class="p">]</span><span class="w"> </span><span class="nx">condition</span><span class="w"> </span><span class="nx">expression</span><span class="w"> </span><span class="p">}}</span>
 </span></code></pre></div></p>
 <p><a href="https://docs.dynatrace.com/docs/platform-modules/automations/workflows/reference">Expression Reference Documentation</a></p>
 <p>Set the <code>And custom condition was met</code>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>{{ result(&quot;js_set_parameters&quot;)[&#39;EASYTRAVEL_URL&#39;] is defined }}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>{{ result("js_set_parameters")['EASYTRAVEL_URL'] is defined }}
 </span></code></pre></div></p>
 <p><img alt="./img/03-http-easytravel-search-input.png" src="../img/03-http-easytravel-search-input.png" /></p>
 <p>Run the workflow and validate the results</p>
@@ -938,10 +938,10 @@ Description:
 <p>Choose action: choose <code>Run JavaScript</code> action type.</p>
 <p>Set the task name and description respectively.</p>
 <p>Paste the following code snippet into the action <code>Input</code>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>import { execution } from &#39;@dynatrace-sdk/automation-utils&#39;;
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>import { credentialVaultClient } from &#39;@dynatrace-sdk/client-classic-environment-v2&#39;;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>import { execution } from '@dynatrace-sdk/automation-utils';
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>import { credentialVaultClient } from '@dynatrace-sdk/client-classic-environment-v2';
 </span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>const PARAMETERS_TASK = &#39;js_set_parameters&#39;;
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>const PARAMETERS_TASK = 'js_set_parameters';
 </span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>
 </span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>export default async function ({ execution_id }) {
 </span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>
@@ -951,12 +951,12 @@ Description:
 </span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>  // parameters
 </span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>  const parameters = await ex.result(PARAMETERS_TASK);
 </span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>  // CREDENTIAL
-</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>  const CREDENTIAL = parameters[&#39;CREDENTIAL&#39;];
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>  const CREDENTIAL = parameters['CREDENTIAL'];
 </span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>
 </span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>  // get the credentials from the credential vault using the SDK
 </span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>  // https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#getcredentialsdetails
 </span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>  const data = (await credentialVaultClient.getCredentialsDetails({id: CREDENTIAL}));
-</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>  const token = data[&#39;token&#39;];
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>  const token = data['token'];
 </span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>
 </span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a>  return { token: token };
 </span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a>}
@@ -964,7 +964,7 @@ Description:
 <p>Click on the task's <code>Conditions</code> tab.  Set the <code>Run this task if</code>: <code>http_easytravel_search</code> is <code>success</code></p>
 <p>Additionally, we only want this task to run if the <code>status_code</code> is <code>200</code> and the response is not empty in the previous task.</p>
 <p>Set the <code>And custom condition was met</code>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>{{ result(&quot;http_easytravel_search&quot;)[&quot;status_code&quot;] == 200 and result(&quot;http_easytravel_search&quot;)[&quot;json&quot;] | length &gt; 0 }}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>{{ result("http_easytravel_search")["status_code"] == 200 and result("http_easytravel_search")["json"] | length &gt; 0 }}
 </span></code></pre></div></p>
 <p><img alt="./img/03-get-credential-input.png" src="../img/03-get-credential-input.png" /></p>
 <h2 id="metric-ingest-dynatrace-api-with-token">Metric Ingest - Dynatrace API with Token<a class="headerlink" href="#metric-ingest-dynatrace-api-with-token" title="Permanent link">#</a></h2>
@@ -985,14 +985,14 @@ Description:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>POST
 </span></code></pre></div></p>
 <p>URL:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>{{ result(&quot;js_set_parameters&quot;)[&#39;INGEST_URL&#39;] }}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>{{ result("js_set_parameters")['INGEST_URL'] }}
 </span></code></pre></div></p>
 <p>Payload:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>{{ result(&quot;js_set_parameters&quot;)[&quot;METRIC&quot;] }},id={{ result(&quot;http_easytravel_search&quot;)[&quot;json&quot;][0][&quot;id&quot;] }},destination={{ result(&quot;http_easytravel_search&quot;)[&quot;json&quot;][0][&quot;destination&quot;] }} {{ result(&quot;http_easytravel_search&quot;)[&quot;json&quot;][0][&quot;amount&quot;] }}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>{{ result("js_set_parameters")["METRIC"] }},id={{ result("http_easytravel_search")["json"][0]["id"] }},destination={{ result("http_easytravel_search")["json"][0]["destination"] }} {{ result("http_easytravel_search")["json"][0]["amount"] }}
 </span></code></pre></div></p>
 <p>Headers:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Content-Type  text/plain
-</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>Authorization   Api-Token {{ result(&quot;js_get_credential&quot;)[&quot;token&quot;] }}
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>Authorization   Api-Token {{ result("js_get_credential")["token"] }}
 </span></code></pre></div></p>
 <p>Error Handling:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>Fail on certain HTTP response codes [Enabled]
@@ -1003,7 +1003,7 @@ Description:
 <p>Click on the task's <code>Conditions</code> tab.  Set the <code>Run this task if</code>: <code>js_get_credential</code> is <code>success</code></p>
 <p>Additionally, we only want this task to run if the <code>token</code> parameter is defined in the previous task.</p>
 <p>Set the <code>And custom condition was met</code>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>{{ result(&quot;js_get_credential&quot;)[&#39;token&#39;] is defined }}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>{{ result("js_get_credential")['token'] is defined }}
 </span></code></pre></div></p>
 <p><img alt="./img/03-http-ingest-metric-input.png" src="../img/03-http-ingest-metric-input.png" /></p>
 <p>Run the workflow and validate the results</p>
@@ -1022,11 +1022,11 @@ Description:
 <p>Choose action: choose <code>Run JavaScript</code> action type.</p>
 <p>Set the task name and description respectively.</p>
 <p>Paste the following code snippet into the action <code>Input</code>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>import { execution } from &#39;@dynatrace-sdk/automation-utils&#39;;
-</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>import { metricsClient } from &quot;@dynatrace-sdk/client-classic-environment-v2&quot;;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>import { execution } from '@dynatrace-sdk/automation-utils';
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>import { metricsClient } from "@dynatrace-sdk/client-classic-environment-v2";
 </span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>
-</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>const PARAMETERS_TASK = &#39;js_set_parameters&#39;;
-</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>const SEARCH_TASK = &#39;http_easytravel_search&#39;;
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>const PARAMETERS_TASK = 'js_set_parameters';
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>const SEARCH_TASK = 'http_easytravel_search';
 </span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>
 </span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>export default async function ({ execution_id }) {
 </span><span id="__span-27-8"><a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>
@@ -1035,15 +1035,15 @@ Description:
 </span><span id="__span-27-11"><a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a>  const ex = await execution(execution_id);
 </span><span id="__span-27-12"><a id="__codelineno-27-12" name="__codelineno-27-12" href="#__codelineno-27-12"></a>  // parameters
 </span><span id="__span-27-13"><a id="__codelineno-27-13" name="__codelineno-27-13" href="#__codelineno-27-13"></a>  const parameters = await ex.result(PARAMETERS_TASK);
-</span><span id="__span-27-14"><a id="__codelineno-27-14" name="__codelineno-27-14" href="#__codelineno-27-14"></a>  const METRIC = parameters[&#39;METRIC&#39;];
+</span><span id="__span-27-14"><a id="__codelineno-27-14" name="__codelineno-27-14" href="#__codelineno-27-14"></a>  const METRIC = parameters['METRIC'];
 </span><span id="__span-27-15"><a id="__codelineno-27-15" name="__codelineno-27-15" href="#__codelineno-27-15"></a>  // previous results
 </span><span id="__span-27-16"><a id="__codelineno-27-16" name="__codelineno-27-16" href="#__codelineno-27-16"></a>  const search_results = await ex.result(SEARCH_TASK);
-</span><span id="__span-27-17"><a id="__codelineno-27-17" name="__codelineno-27-17" href="#__codelineno-27-17"></a>  const id = search_results[&#39;json&#39;][0][&#39;id&#39;];
-</span><span id="__span-27-18"><a id="__codelineno-27-18" name="__codelineno-27-18" href="#__codelineno-27-18"></a>  const amount = search_results[&#39;json&#39;][0][&#39;amount&#39;];
-</span><span id="__span-27-19"><a id="__codelineno-27-19" name="__codelineno-27-19" href="#__codelineno-27-19"></a>  const destination = search_results[&#39;json&#39;][0][&#39;destination&#39;];
+</span><span id="__span-27-17"><a id="__codelineno-27-17" name="__codelineno-27-17" href="#__codelineno-27-17"></a>  const id = search_results['json'][0]['id'];
+</span><span id="__span-27-18"><a id="__codelineno-27-18" name="__codelineno-27-18" href="#__codelineno-27-18"></a>  const amount = search_results['json'][0]['amount'];
+</span><span id="__span-27-19"><a id="__codelineno-27-19" name="__codelineno-27-19" href="#__codelineno-27-19"></a>  const destination = search_results['json'][0]['destination'];
 </span><span id="__span-27-20"><a id="__codelineno-27-20" name="__codelineno-27-20" href="#__codelineno-27-20"></a>
 </span><span id="__span-27-21"><a id="__codelineno-27-21" name="__codelineno-27-21" href="#__codelineno-27-21"></a>  // build the line_protocol string to ingest the metric data point
-</span><span id="__span-27-22"><a id="__codelineno-27-22" name="__codelineno-27-22" href="#__codelineno-27-22"></a>  const line_protocol = METRIC + &#39;,id=&#39; + id + &#39;,destination=&#39; + destination + &#39; &#39; + amount;
+</span><span id="__span-27-22"><a id="__codelineno-27-22" name="__codelineno-27-22" href="#__codelineno-27-22"></a>  const line_protocol = METRIC + ',id=' + id + ',destination=' + destination + ' ' + amount;
 </span><span id="__span-27-23"><a id="__codelineno-27-23" name="__codelineno-27-23" href="#__codelineno-27-23"></a>  // (optional) log the line_protocol value
 </span><span id="__span-27-24"><a id="__codelineno-27-24" name="__codelineno-27-24" href="#__codelineno-27-24"></a>  console.log(line_protocol);
 </span><span id="__span-27-25"><a id="__codelineno-27-25" name="__codelineno-27-25" href="#__codelineno-27-25"></a>  // ingest the metric data point using the SDK
@@ -1058,7 +1058,7 @@ Description:
 <p>Click on the task's <code>Conditions</code> tab.  Set the <code>Run this task if</code>: <code>http_easytravel_search</code> is <code>success</code></p>
 <p>Additionally, we only want this task to run if the <code>status_code</code> is <code>200</code> and the response is not empty in the previous task.</p>
 <p>Set the <code>And custom condition was met</code>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>{{ result(&quot;http_easytravel_search&quot;)[&quot;status_code&quot;] == 200 and result(&quot;http_easytravel_search&quot;)[&quot;json&quot;] | length &gt; 0 }}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>{{ result("http_easytravel_search")["status_code"] == 200 and result("http_easytravel_search")["json"] | length &gt; 0 }}
 </span></code></pre></div></p>
 <p><img alt="./img/03-ingest-metric-sdk-input.png" src="../img/03-ingest-metric-sdk-input.png" /></p>
 <p>Run the workflow and validate the results</p>
@@ -1089,10 +1089,10 @@ Description:
 </span><span id="__span-31-7"><a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a>  const waitTime = async () =&gt; {
 </span><span id="__span-31-8"><a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a>  // 30,000ms = 30 seconds to sleep
 </span><span id="__span-31-9"><a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a>  await sleep(30000);
-</span><span id="__span-31-10"><a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a>  console.log(&quot;Finished Waiting&quot;);
+</span><span id="__span-31-10"><a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a>  console.log("Finished Waiting");
 </span><span id="__span-31-11"><a id="__codelineno-31-11" name="__codelineno-31-11" href="#__codelineno-31-11"></a>  }
 </span><span id="__span-31-12"><a id="__codelineno-31-12" name="__codelineno-31-12" href="#__codelineno-31-12"></a>
-</span><span id="__span-31-13"><a id="__codelineno-31-13" name="__codelineno-31-13" href="#__codelineno-31-13"></a>  console.log(&quot;Waiting 30 Seconds&quot;);
+</span><span id="__span-31-13"><a id="__codelineno-31-13" name="__codelineno-31-13" href="#__codelineno-31-13"></a>  console.log("Waiting 30 Seconds");
 </span><span id="__span-31-14"><a id="__codelineno-31-14" name="__codelineno-31-14" href="#__codelineno-31-14"></a>  waitTime();
 </span><span id="__span-31-15"><a id="__codelineno-31-15" name="__codelineno-31-15" href="#__codelineno-31-15"></a>
 </span><span id="__span-31-16"><a id="__codelineno-31-16" name="__codelineno-31-16" href="#__codelineno-31-16"></a>}
@@ -1112,12 +1112,12 @@ Description:
 <p>Click the <code>+</code> button to add a new action to the Workflow.</p>
 <p>Choose action: choose <code>Run JavaScript</code> action type.</p>
 <p>Paste the following code snippet into the action <code>Input</code>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>import { execution } from &#39;@dynatrace-sdk/automation-utils&#39;;
-</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>import { queryExecutionClient } from &quot;@dynatrace-sdk/client-query&quot;;
-</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>import { eventsClient, EventIngestEventType } from &quot;@dynatrace-sdk/client-classic-environment-v2&quot;;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>import { execution } from '@dynatrace-sdk/automation-utils';
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>import { queryExecutionClient } from "@dynatrace-sdk/client-query";
+</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>import { eventsClient, EventIngestEventType } from "@dynatrace-sdk/client-classic-environment-v2";
 </span><span id="__span-34-4"><a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>
-</span><span id="__span-34-5"><a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>const PARAMETERS_TASK = &#39;js_set_parameters&#39;;
-</span><span id="__span-34-6"><a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>const SEARCH_TASK = &#39;http_easytravel_search&#39;;
+</span><span id="__span-34-5"><a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>const PARAMETERS_TASK = 'js_set_parameters';
+</span><span id="__span-34-6"><a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>const SEARCH_TASK = 'http_easytravel_search';
 </span><span id="__span-34-7"><a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a>
 </span><span id="__span-34-8"><a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a>export default async function ({ execution_id }) {
 </span><span id="__span-34-9"><a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a>
@@ -1126,30 +1126,30 @@ Description:
 </span><span id="__span-34-12"><a id="__codelineno-34-12" name="__codelineno-34-12" href="#__codelineno-34-12"></a>  const ex = await execution(execution_id);
 </span><span id="__span-34-13"><a id="__codelineno-34-13" name="__codelineno-34-13" href="#__codelineno-34-13"></a>  // parameters
 </span><span id="__span-34-14"><a id="__codelineno-34-14" name="__codelineno-34-14" href="#__codelineno-34-14"></a>  const parameters = await ex.result(PARAMETERS_TASK);
-</span><span id="__span-34-15"><a id="__codelineno-34-15" name="__codelineno-34-15" href="#__codelineno-34-15"></a>  const METRIC = parameters[&#39;METRIC&#39;];
-</span><span id="__span-34-16"><a id="__codelineno-34-16" name="__codelineno-34-16" href="#__codelineno-34-16"></a>  const THRESHOLD = parameters[&#39;THRESHOLD&#39;];
+</span><span id="__span-34-15"><a id="__codelineno-34-15" name="__codelineno-34-15" href="#__codelineno-34-15"></a>  const METRIC = parameters['METRIC'];
+</span><span id="__span-34-16"><a id="__codelineno-34-16" name="__codelineno-34-16" href="#__codelineno-34-16"></a>  const THRESHOLD = parameters['THRESHOLD'];
 </span><span id="__span-34-17"><a id="__codelineno-34-17" name="__codelineno-34-17" href="#__codelineno-34-17"></a>  // previous results
 </span><span id="__span-34-18"><a id="__codelineno-34-18" name="__codelineno-34-18" href="#__codelineno-34-18"></a>  const search_results = await ex.result(SEARCH_TASK);
-</span><span id="__span-34-19"><a id="__codelineno-34-19" name="__codelineno-34-19" href="#__codelineno-34-19"></a>  const destination = search_results[&#39;json&#39;][0][&#39;destination&#39;];
+</span><span id="__span-34-19"><a id="__codelineno-34-19" name="__codelineno-34-19" href="#__codelineno-34-19"></a>  const destination = search_results['json'][0]['destination'];
 </span><span id="__span-34-20"><a id="__codelineno-34-20" name="__codelineno-34-20" href="#__codelineno-34-20"></a>
 </span><span id="__span-34-21"><a id="__codelineno-34-21" name="__codelineno-34-21" href="#__codelineno-34-21"></a>  // build the DQL query for the metric
 </span><span id="__span-34-22"><a id="__codelineno-34-22" name="__codelineno-34-22" href="#__codelineno-34-22"></a>  // query the metric value for the last 5 minutes
 </span><span id="__span-34-23"><a id="__codelineno-34-23" name="__codelineno-34-23" href="#__codelineno-34-23"></a>  // https://developer.dynatrace.com/develop/sdks/client-query/#queryexecute
 </span><span id="__span-34-24"><a id="__codelineno-34-24" name="__codelineno-34-24" href="#__codelineno-34-24"></a>  const timeout = 60;
-</span><span id="__span-34-25"><a id="__codelineno-34-25" name="__codelineno-34-25" href="#__codelineno-34-25"></a>  const query = &#39;timeseries journey_amount = avg(&#39; + METRIC + &#39;), by: {destination}, from: now()-5m\
-</span><span id="__span-34-26"><a id="__codelineno-34-26" name="__codelineno-34-26" href="#__codelineno-34-26"></a>                  | filter destination == &quot;&#39; + destination + &#39;&quot;\
-</span><span id="__span-34-27"><a id="__codelineno-34-27" name="__codelineno-34-27" href="#__codelineno-34-27"></a>                  | summarize avg_amount = avg(arrayAvg(journey_amount))&#39;;
+</span><span id="__span-34-25"><a id="__codelineno-34-25" name="__codelineno-34-25" href="#__codelineno-34-25"></a>  const query = 'timeseries journey_amount = avg(' + METRIC + '), by: {destination}, from: now()-5m\
+</span><span id="__span-34-26"><a id="__codelineno-34-26" name="__codelineno-34-26" href="#__codelineno-34-26"></a>                  | filter destination == "' + destination + '"\
+</span><span id="__span-34-27"><a id="__codelineno-34-27" name="__codelineno-34-27" href="#__codelineno-34-27"></a>                  | summarize avg_amount = avg(arrayAvg(journey_amount))';
 </span><span id="__span-34-28"><a id="__codelineno-34-28" name="__codelineno-34-28" href="#__codelineno-34-28"></a>
 </span><span id="__span-34-29"><a id="__codelineno-34-29" name="__codelineno-34-29" href="#__codelineno-34-29"></a>  const query_response = await queryExecutionClient.queryExecute({ body: { query, requestTimeoutMilliseconds: timeout * 1000, fetchTimeoutSeconds: timeout  } });
 </span><span id="__span-34-30"><a id="__codelineno-34-30" name="__codelineno-34-30" href="#__codelineno-34-30"></a>
 </span><span id="__span-34-31"><a id="__codelineno-34-31" name="__codelineno-34-31" href="#__codelineno-34-31"></a>  // check if the query result is empty (unexpectedly)
 </span><span id="__span-34-32"><a id="__codelineno-34-32" name="__codelineno-34-32" href="#__codelineno-34-32"></a>  if(query_response.result.records.length == 0) {
-</span><span id="__span-34-33"><a id="__codelineno-34-33" name="__codelineno-34-33" href="#__codelineno-34-33"></a>    console.log(&quot;Query returned an empty result unexpectedly!&quot;);
+</span><span id="__span-34-33"><a id="__codelineno-34-33" name="__codelineno-34-33" href="#__codelineno-34-33"></a>    console.log("Query returned an empty result unexpectedly!");
 </span><span id="__span-34-34"><a id="__codelineno-34-34" name="__codelineno-34-34" href="#__codelineno-34-34"></a>    return query_response.result;
 </span><span id="__span-34-35"><a id="__codelineno-34-35" name="__codelineno-34-35" href="#__codelineno-34-35"></a>  }
 </span><span id="__span-34-36"><a id="__codelineno-34-36" name="__codelineno-34-36" href="#__codelineno-34-36"></a>
 </span><span id="__span-34-37"><a id="__codelineno-34-37" name="__codelineno-34-37" href="#__codelineno-34-37"></a>  // capture the average journey amount from query response
-</span><span id="__span-34-38"><a id="__codelineno-34-38" name="__codelineno-34-38" href="#__codelineno-34-38"></a>  const avg_amount = parseFloat(query_response.result.records[0][&#39;avg_amount&#39;]);
+</span><span id="__span-34-38"><a id="__codelineno-34-38" name="__codelineno-34-38" href="#__codelineno-34-38"></a>  const avg_amount = parseFloat(query_response.result.records[0]['avg_amount']);
 </span><span id="__span-34-39"><a id="__codelineno-34-39" name="__codelineno-34-39" href="#__codelineno-34-39"></a>
 </span><span id="__span-34-40"><a id="__codelineno-34-40" name="__codelineno-34-40" href="#__codelineno-34-40"></a>  // check if the avg amount value is above the threshold parameter, if true then raise alert event
 </span><span id="__span-34-41"><a id="__codelineno-34-41" name="__codelineno-34-41" href="#__codelineno-34-41"></a>  if(avg_amount &gt; THRESHOLD) {
@@ -1159,17 +1159,17 @@ Description:
 </span><span id="__span-34-45"><a id="__codelineno-34-45" name="__codelineno-34-45" href="#__codelineno-34-45"></a>      // https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#eventingest
 </span><span id="__span-34-46"><a id="__codelineno-34-46" name="__codelineno-34-46" href="#__codelineno-34-46"></a>      body : {
 </span><span id="__span-34-47"><a id="__codelineno-34-47" name="__codelineno-34-47" href="#__codelineno-34-47"></a>        eventType: EventIngestEventType.CustomAlert, // https://developer.dynatrace.com/develop/sdks/client-classic-environment-v2/#eventingesteventtype
-</span><span id="__span-34-48"><a id="__codelineno-34-48" name="__codelineno-34-48" href="#__codelineno-34-48"></a>        title: &#39;EasyTravel Journey Amount [ &#39; + avg_amount + &#39; ]&#39;,
+</span><span id="__span-34-48"><a id="__codelineno-34-48" name="__codelineno-34-48" href="#__codelineno-34-48"></a>        title: 'EasyTravel Journey Amount [ ' + avg_amount + ' ]',
 </span><span id="__span-34-49"><a id="__codelineno-34-49" name="__codelineno-34-49" href="#__codelineno-34-49"></a>        timeout: 5,
 </span><span id="__span-34-50"><a id="__codelineno-34-50" name="__codelineno-34-50" href="#__codelineno-34-50"></a>        properties: {
-</span><span id="__span-34-51"><a id="__codelineno-34-51" name="__codelineno-34-51" href="#__codelineno-34-51"></a>          &#39;amount&#39;: avg_amount,
-</span><span id="__span-34-52"><a id="__codelineno-34-52" name="__codelineno-34-52" href="#__codelineno-34-52"></a>          &#39;threshold&#39; : THRESHOLD,
+</span><span id="__span-34-51"><a id="__codelineno-34-51" name="__codelineno-34-51" href="#__codelineno-34-51"></a>          'amount': avg_amount,
+</span><span id="__span-34-52"><a id="__codelineno-34-52" name="__codelineno-34-52" href="#__codelineno-34-52"></a>          'threshold' : THRESHOLD,
 </span><span id="__span-34-53"><a id="__codelineno-34-53" name="__codelineno-34-53" href="#__codelineno-34-53"></a>        }
 </span><span id="__span-34-54"><a id="__codelineno-34-54" name="__codelineno-34-54" href="#__codelineno-34-54"></a>      }
 </span><span id="__span-34-55"><a id="__codelineno-34-55" name="__codelineno-34-55" href="#__codelineno-34-55"></a>    });
 </span><span id="__span-34-56"><a id="__codelineno-34-56" name="__codelineno-34-56" href="#__codelineno-34-56"></a>
 </span><span id="__span-34-57"><a id="__codelineno-34-57" name="__codelineno-34-57" href="#__codelineno-34-57"></a>    // validate that the alert event was created, return the correlationId and details
-</span><span id="__span-34-58"><a id="__codelineno-34-58" name="__codelineno-34-58" href="#__codelineno-34-58"></a>    if(event_response.eventIngestResults[0].status == &quot;OK&quot;) {
+</span><span id="__span-34-58"><a id="__codelineno-34-58" name="__codelineno-34-58" href="#__codelineno-34-58"></a>    if(event_response.eventIngestResults[0].status == "OK") {
 </span><span id="__span-34-59"><a id="__codelineno-34-59" name="__codelineno-34-59" href="#__codelineno-34-59"></a>      return {
 </span><span id="__span-34-60"><a id="__codelineno-34-60" name="__codelineno-34-60" href="#__codelineno-34-60"></a>        amount: avg_amount,
 </span><span id="__span-34-61"><a id="__codelineno-34-61" name="__codelineno-34-61" href="#__codelineno-34-61"></a>        threshold: THRESHOLD,
@@ -1179,7 +1179,7 @@ Description:
 </span><span id="__span-34-65"><a id="__codelineno-34-65" name="__codelineno-34-65" href="#__codelineno-34-65"></a>      return {
 </span><span id="__span-34-66"><a id="__codelineno-34-66" name="__codelineno-34-66" href="#__codelineno-34-66"></a>        amount: avg_amount,
 </span><span id="__span-34-67"><a id="__codelineno-34-67" name="__codelineno-34-67" href="#__codelineno-34-67"></a>        threshold: THRESHOLD,
-</span><span id="__span-34-68"><a id="__codelineno-34-68" name="__codelineno-34-68" href="#__codelineno-34-68"></a>        correlationId: &quot;ERROR&quot;
+</span><span id="__span-34-68"><a id="__codelineno-34-68" name="__codelineno-34-68" href="#__codelineno-34-68"></a>        correlationId: "ERROR"
 </span><span id="__span-34-69"><a id="__codelineno-34-69" name="__codelineno-34-69" href="#__codelineno-34-69"></a>      }
 </span><span id="__span-34-70"><a id="__codelineno-34-70" name="__codelineno-34-70" href="#__codelineno-34-70"></a>    }
 </span><span id="__span-34-71"><a id="__codelineno-34-71" name="__codelineno-34-71" href="#__codelineno-34-71"></a>  }

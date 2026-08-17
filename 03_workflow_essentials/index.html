@@ -742,19 +742,19 @@ Description:
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  let PARAMETERS = {
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    // INITIALS - the initials of the user for this lab
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    INITIALS: &quot;&quot;, // i.e. INITIALS: &quot;TPC&quot;; the intials of the user for this lab are TPC
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    INITIALS: "", // i.e. INITIALS: "TPC"; the intials of the user for this lab are TPC
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
 </span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    // LOCATION - the city and country of the user for this lab
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    LOCATION: &quot;&quot;, // i.e. LOCATION: &quot;Dallas, United States&quot;;
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    LOCATION: "", // i.e. LOCATION: "Dallas, United States";
 </span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
 </span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    // TENURE - the number of years of tenure of the user for this lab
 </span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    TENURE: ##, // i.e. TENURE: 14; the user for this lab has 14 years of tenure
 </span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
 </span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    // STATUS_URL - the URL of the dynatrace status.io API
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    STATUS_URL: &quot;https://api.status.io/1.0/status/546d8cb6af8407b6730000cb&quot;, // i.e. STATUS_URL: &quot;https://api.status.io/1.0/status/546d8cb6af8407b6730000cb&quot;
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    STATUS_URL: "https://api.status.io/1.0/status/546d8cb6af8407b6730000cb", // i.e. STATUS_URL: "https://api.status.io/1.0/status/546d8cb6af8407b6730000cb"
 </span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
 </span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>    // WEBHOOK_URL- the URL of the webhook.site unique endpoint
-</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>    WEBHOOK_URL: &quot;&quot;, // i.e. WEBHOOK_URL: &quot;https://webhook.site/18637ec8-fcf9-43ec-86bf-993626982c6c&quot;
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>    WEBHOOK_URL: "", // i.e. WEBHOOK_URL: "https://webhook.site/18637ec8-fcf9-43ec-86bf-993626982c6c"
 </span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>
 </span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>  }
 </span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>
@@ -785,9 +785,9 @@ Description:
 <p>Choose action: choose <code>Run JavaScript</code> action type.</p>
 <p>Set the task name and description respectively.</p>
 <p>Paste the following code snippet into the action <code>Input</code>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>import { execution } from &#39;@dynatrace-sdk/automation-utils&#39;;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>import { execution } from '@dynatrace-sdk/automation-utils';
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>const PARAMETERS_TASK = &#39;js_set_parameters&#39;;
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>const PARAMETERS_TASK = 'js_set_parameters';
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
 </span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>export default async function ({ execution_id }) {
 </span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
@@ -801,12 +801,12 @@ Description:
 </span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>  console.log(parameters);
 </span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
 </span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>  // declare new variables to easily access the parameters within this task
-</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>  const INITIALS = parameters[&#39;INITIALS&#39;];
-</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>  const LOCATION = parameters[&#39;LOCATION&#39;];
-</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>  const TENURE = parameters[&#39;TENURE&#39;];
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>  const INITIALS = parameters['INITIALS'];
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>  const LOCATION = parameters['LOCATION'];
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>  const TENURE = parameters['TENURE'];
 </span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>
 </span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>  // return a string that contains the parameters
-</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>  return &quot;The lab user &quot; + INITIALS + &quot;, is located in &quot; + LOCATION + &quot;.  They have &quot; + TENURE + &quot; years of tenure.&quot;;
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>  return "The lab user " + INITIALS + ", is located in " + LOCATION + ".  They have " + TENURE + " years of tenure.";
 </span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>
 </span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>}
 </span></code></pre></div></p>
@@ -828,9 +828,9 @@ Description:
 <p>Choose action: choose <code>Run JavaScript</code> action type.</p>
 <p>Set the task name and description respectively.</p>
 <p>Paste the following code snippet into the action <code>Input</code>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>import { execution } from &#39;@dynatrace-sdk/automation-utils&#39;;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>import { execution } from '@dynatrace-sdk/automation-utils';
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>const PARAMETERS_TASK = &#39;js_set_parameters&#39;;
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>const PARAMETERS_TASK = 'js_set_parameters';
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
 </span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>export default async function ({ execution_id }) {
 </span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
@@ -840,14 +840,14 @@ Description:
 </span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>  // parameters
 </span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>  const parameters = await ex.result(PARAMETERS_TASK);
 </span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>  // STATUS_URL
-</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>  const STATUS_URL = parameters[&#39;STATUS_URL&#39;];
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>  const STATUS_URL = parameters['STATUS_URL'];
 </span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>
 </span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>  // set the fetch() api parameters [method, headers, body]
 </span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>  // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 </span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>  const options = {
-</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>    method: &quot;GET&quot;,
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>    method: "GET",
 </span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>    headers: {
-</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>      &#39;accept&#39;: &quot;application/json&quot;,
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>      'accept': "application/json",
 </span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>    }
 </span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>  };
 </span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>
@@ -864,13 +864,13 @@ Description:
 </span></code></pre></div></p>
 <p>Click on the task's <code>Conditions</code> tab.  Set the <code>Run this task if</code>: <code>js_set_parameters</code> is <code>success</code></p>
 <p>Additionally, we only want this task to run if the <code>STATUS_URL</code> parameter is defined in the previous task.  We can access the result using a Jinja expression:
-<div class="language-js highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="mf">1.</span><span class="w"> </span><span class="p">{{</span><span class="w"> </span><span class="nx">result</span><span class="p">(</span><span class="s2">&quot;task_name&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">}}</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="mf">2.</span><span class="w"> </span><span class="p">{{</span><span class="w"> </span><span class="nx">result</span><span class="p">(</span><span class="s2">&quot;task_name&quot;</span><span class="p">)[</span><span class="s1">&#39;result_attribute_name&#39;</span><span class="p">]</span><span class="w"> </span><span class="p">}}</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="mf">3.</span><span class="w"> </span><span class="p">{{</span><span class="w"> </span><span class="nx">result</span><span class="p">(</span><span class="s2">&quot;task_name&quot;</span><span class="p">)[</span><span class="s1">&#39;result_attribute_name&#39;</span><span class="p">]</span><span class="w"> </span><span class="nx">condition</span><span class="w"> </span><span class="nx">expression</span><span class="w"> </span><span class="p">}}</span>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="mf">1.</span><span class="w"> </span><span class="p">{{</span><span class="w"> </span><span class="nx">result</span><span class="p">(</span><span class="s2">"task_name"</span><span class="p">)</span><span class="w"> </span><span class="p">}}</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="mf">2.</span><span class="w"> </span><span class="p">{{</span><span class="w"> </span><span class="nx">result</span><span class="p">(</span><span class="s2">"task_name"</span><span class="p">)[</span><span class="s1">'result_attribute_name'</span><span class="p">]</span><span class="w"> </span><span class="p">}}</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="mf">3.</span><span class="w"> </span><span class="p">{{</span><span class="w"> </span><span class="nx">result</span><span class="p">(</span><span class="s2">"task_name"</span><span class="p">)[</span><span class="s1">'result_attribute_name'</span><span class="p">]</span><span class="w"> </span><span class="nx">condition</span><span class="w"> </span><span class="nx">expression</span><span class="w"> </span><span class="p">}}</span>
 </span></code></pre></div></p>
 <p><a href="https://docs.dynatrace.com/docs/platform-modules/automations/workflows/reference" target="_blank">Expression Reference Documentation</a></p>
 <p>Set the <code>And custom condition was met</code>:
-<div class="language-js highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">{{</span><span class="w"> </span><span class="nx">result</span><span class="p">(</span><span class="s2">&quot;js_set_parameters&quot;</span><span class="p">)[</span><span class="s1">&#39;STATUS_URL&#39;</span><span class="p">]</span><span class="w"> </span><span class="nx">is</span><span class="w"> </span><span class="nx">defined</span><span class="w"> </span><span class="p">}}</span>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">{{</span><span class="w"> </span><span class="nx">result</span><span class="p">(</span><span class="s2">"js_set_parameters"</span><span class="p">)[</span><span class="s1">'STATUS_URL'</span><span class="p">]</span><span class="w"> </span><span class="nx">is</span><span class="w"> </span><span class="nx">defined</span><span class="w"> </span><span class="p">}}</span>
 </span></code></pre></div></p>
 <p><img alt="./img/02-fetch-status-io-input.png" src="../img/02-fetch-status-io-input.png" /></p>
 <hr />
@@ -887,10 +887,10 @@ Description:
 <p>Choose action: choose <code>Run JavaScript</code> action type.</p>
 <p>Set the task name and description respectively.</p>
 <p>Paste the following code snippet into the action <code>Input</code>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>import { execution } from &#39;@dynatrace-sdk/automation-utils&#39;;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>import { execution } from '@dynatrace-sdk/automation-utils';
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>const PARAMETERS_TASK = &#39;js_set_parameters&#39;;
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>const FETCH_STATUS_TASK = &#39;js_fetch_status_io&#39;;
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>const PARAMETERS_TASK = 'js_set_parameters';
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>const FETCH_STATUS_TASK = 'js_fetch_status_io';
 </span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
 </span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>export default async function ({ execution_id }) {
 </span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>
@@ -900,7 +900,7 @@ Description:
 </span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>  // parameters
 </span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>  const parameters = await ex.result(PARAMETERS_TASK);
 </span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>  // WEBHOOK_URL
-</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>  const WEBHOOK_URL = parameters[&#39;WEBHOOK_URL&#39;];
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>  const WEBHOOK_URL = parameters['WEBHOOK_URL'];
 </span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>
 </span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>  // get results from previous task
 </span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>  // fetch status task result
@@ -909,9 +909,9 @@ Description:
 </span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>  // set the fetch() api parameters [method, headers, body]
 </span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a>  // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 </span><span id="__span-13-22"><a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a>  const options = {
-</span><span id="__span-13-23"><a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a>    method: &quot;POST&quot;,
+</span><span id="__span-13-23"><a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a>    method: "POST",
 </span><span id="__span-13-24"><a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a>    headers: {
-</span><span id="__span-13-25"><a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a>      &#39;content-type&#39;: &quot;application/json&quot;,
+</span><span id="__span-13-25"><a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a>      'content-type': "application/json",
 </span><span id="__span-13-26"><a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a>    },
 </span><span id="__span-13-27"><a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a>    body: JSON.stringify(status_result)
 </span><span id="__span-13-28"><a id="__codelineno-13-28" name="__codelineno-13-28" href="#__codelineno-13-28"></a>  };
@@ -930,7 +930,7 @@ Description:
 <p>Click on the task's <code>Conditions</code> tab.  Set the <code>Run this task if</code>: <code>js_fetch_status_io</code> is <code>success</code></p>
 <p>Additionally, we only want this task to run if the <code>result</code> attribute is defined in the previous task.  We can access the result using a Jinja expression:</p>
 <p>Set the <code>And custom condition was met</code>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>{{ result(&quot;js_fetch_status_io&quot;)[&#39;result&#39;] is defined }}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>{{ result("js_fetch_status_io")['result'] is defined }}
 </span></code></pre></div></p>
 <p><img alt="./img/02-fetch-webhook-site-input.png" src="../img/02-fetch-webhook-site-input.png" /></p>
 <p>Run the workflow and validate the results</p>
@@ -950,7 +950,7 @@ Description:
 <p>Set the task name and description respectively.</p>
 <p>Paste the following DQL query into the action <code>Input</code>:
 <div class="language-sql highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">fetch</span><span class="w"> </span><span class="n">bizevents</span><span class="p">,</span><span class="w"> </span><span class="k">from</span><span class="p">:</span><span class="w"> </span><span class="n">now</span><span class="p">()</span><span class="o">-</span><span class="mi">2</span><span class="n">h</span>
-</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="o">|</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="n">provider</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="ss">&quot;workflow.essentials.withdraw-processing&quot;</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="o">|</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="n">provider</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="ss">"workflow.essentials.withdraw-processing"</span>
 </span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="o">|</span><span class="w"> </span><span class="n">summarize</span><span class="w"> </span><span class="k">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">count</span><span class="p">(),</span><span class="w"> </span><span class="k">by</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="n">step</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="k">type</span><span class="err">}</span>
 </span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="o">|</span><span class="w"> </span><span class="n">sort</span><span class="w"> </span><span class="n">step</span><span class="w"> </span><span class="k">asc</span>
 </span></code></pre></div></p>
@@ -970,10 +970,10 @@ Description:
 <p>Choose action: choose <code>Run JavaScript</code> action type.</p>
 <p>Set the task name and description respectively.</p>
 <p>Paste the following code snippet into the action <code>Input</code>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>import { execution, actionExecution } from &#39;@dynatrace-sdk/automation-utils&#39;;
-</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>import { getCurrentUserDetails,getEnvironmentId,getEnvironmentUrl } from &#39;@dynatrace-sdk/app-environment&#39;;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>import { execution, actionExecution } from '@dynatrace-sdk/automation-utils';
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>import { getCurrentUserDetails,getEnvironmentId,getEnvironmentUrl } from '@dynatrace-sdk/app-environment';
 </span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>
-</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>const PARAMETERS_TASK = &#39;js_set_parameters&#39;;
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>const PARAMETERS_TASK = 'js_set_parameters';
 </span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>
 </span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>export default async function ({ execution_id, action_execution_id }) {
 </span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>
@@ -983,19 +983,19 @@ Description:
 </span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>  // parameters
 </span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>  const parameters = await ex.result(PARAMETERS_TASK);
 </span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>  // WEBHOOK_URL
-</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>  const WEBHOOK_URL = parameters[&#39;WEBHOOK_URL&#39;];
+</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>  const WEBHOOK_URL = parameters['WEBHOOK_URL'];
 </span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a>
 </span><span id="__span-20-16"><a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a>  // get the loop item for the action execution
 </span><span id="__span-20-17"><a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a>  const actionEx = await actionExecution(action_execution_id);
-</span><span id="__span-20-18"><a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a>  const record = actionEx.loopItem[&#39;item&#39;];
+</span><span id="__span-20-18"><a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a>  const record = actionEx.loopItem['item'];
 </span><span id="__span-20-19"><a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a>  // log the loop item record
 </span><span id="__span-20-20"><a id="__codelineno-20-20" name="__codelineno-20-20" href="#__codelineno-20-20"></a>  console.log(JSON.stringify(record));
 </span><span id="__span-20-21"><a id="__codelineno-20-21" name="__codelineno-20-21" href="#__codelineno-20-21"></a>  // create variables for the step and count attributes within the record
-</span><span id="__span-20-22"><a id="__codelineno-20-22" name="__codelineno-20-22" href="#__codelineno-20-22"></a>  const step = record[&#39;step&#39;];
-</span><span id="__span-20-23"><a id="__codelineno-20-23" name="__codelineno-20-23" href="#__codelineno-20-23"></a>  const count = record[&#39;count&#39;];
+</span><span id="__span-20-22"><a id="__codelineno-20-22" name="__codelineno-20-22" href="#__codelineno-20-22"></a>  const step = record['step'];
+</span><span id="__span-20-23"><a id="__codelineno-20-23" name="__codelineno-20-23" href="#__codelineno-20-23"></a>  const count = record['count'];
 </span><span id="__span-20-24"><a id="__codelineno-20-24" name="__codelineno-20-24" href="#__codelineno-20-24"></a>
-</span><span id="__span-20-25"><a id="__codelineno-20-25" name="__codelineno-20-25" href="#__codelineno-20-25"></a>  // check if step is &quot;06.funds.received&quot;, send webhook with details
-</span><span id="__span-20-26"><a id="__codelineno-20-26" name="__codelineno-20-26" href="#__codelineno-20-26"></a>  if(step == &quot;06.funds.received&quot;) {
+</span><span id="__span-20-25"><a id="__codelineno-20-25" name="__codelineno-20-25" href="#__codelineno-20-25"></a>  // check if step is "06.funds.received", send webhook with details
+</span><span id="__span-20-26"><a id="__codelineno-20-26" name="__codelineno-20-26" href="#__codelineno-20-26"></a>  if(step == "06.funds.received") {
 </span><span id="__span-20-27"><a id="__codelineno-20-27" name="__codelineno-20-27" href="#__codelineno-20-27"></a>
 </span><span id="__span-20-28"><a id="__codelineno-20-28" name="__codelineno-20-28" href="#__codelineno-20-28"></a>    // get a timestamp to send with the payload
 </span><span id="__span-20-29"><a id="__codelineno-20-29" name="__codelineno-20-29" href="#__codelineno-20-29"></a>    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date
@@ -1006,14 +1006,14 @@ Description:
 </span><span id="__span-20-34"><a id="__codelineno-20-34" name="__codelineno-20-34" href="#__codelineno-20-34"></a>
 </span><span id="__span-20-35"><a id="__codelineno-20-35" name="__codelineno-20-35" href="#__codelineno-20-35"></a>    // Workflow execution user details
 </span><span id="__span-20-36"><a id="__codelineno-20-36" name="__codelineno-20-36" href="#__codelineno-20-36"></a>    const user_details = getCurrentUserDetails();
-</span><span id="__span-20-37"><a id="__codelineno-20-37" name="__codelineno-20-37" href="#__codelineno-20-37"></a>    const user_name = user_details[&#39;name&#39;]; // get the user name
+</span><span id="__span-20-37"><a id="__codelineno-20-37" name="__codelineno-20-37" href="#__codelineno-20-37"></a>    const user_name = user_details['name']; // get the user name
 </span><span id="__span-20-38"><a id="__codelineno-20-38" name="__codelineno-20-38" href="#__codelineno-20-38"></a>
 </span><span id="__span-20-39"><a id="__codelineno-20-39" name="__codelineno-20-39" href="#__codelineno-20-39"></a>    // set the fetch() api parameters [method, headers, body]
 </span><span id="__span-20-40"><a id="__codelineno-20-40" name="__codelineno-20-40" href="#__codelineno-20-40"></a>    // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 </span><span id="__span-20-41"><a id="__codelineno-20-41" name="__codelineno-20-41" href="#__codelineno-20-41"></a>    const options = {
-</span><span id="__span-20-42"><a id="__codelineno-20-42" name="__codelineno-20-42" href="#__codelineno-20-42"></a>      method: &quot;POST&quot;,
+</span><span id="__span-20-42"><a id="__codelineno-20-42" name="__codelineno-20-42" href="#__codelineno-20-42"></a>      method: "POST",
 </span><span id="__span-20-43"><a id="__codelineno-20-43" name="__codelineno-20-43" href="#__codelineno-20-43"></a>      headers: {
-</span><span id="__span-20-44"><a id="__codelineno-20-44" name="__codelineno-20-44" href="#__codelineno-20-44"></a>        &#39;content-type&#39;: &quot;application/json&quot;,
+</span><span id="__span-20-44"><a id="__codelineno-20-44" name="__codelineno-20-44" href="#__codelineno-20-44"></a>        'content-type': "application/json",
 </span><span id="__span-20-45"><a id="__codelineno-20-45" name="__codelineno-20-45" href="#__codelineno-20-45"></a>      },
 </span><span id="__span-20-46"><a id="__codelineno-20-46" name="__codelineno-20-46" href="#__codelineno-20-46"></a>      body: JSON.stringify({
 </span><span id="__span-20-47"><a id="__codelineno-20-47" name="__codelineno-20-47" href="#__codelineno-20-47"></a>        timestamp: timestamp.toISOString(), // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
@@ -1043,7 +1043,7 @@ Description:
 <p>Click on the task's <code>Conditions</code> tab.  Set the <code>Run this task if</code>: <code>dql_query_bizevents</code> is <code>success</code></p>
 <p>Additionally, we only want this task to run if the result of the previous task has a <code>records</code> array with a <code>length &gt; 0</code>.</p>
 <p>Set the <code>And custom condition was met</code>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>{{ result(&quot;dql_query_bizevents&quot;).records | length &gt; 0 }}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>{{ result("dql_query_bizevents").records | length &gt; 0 }}
 </span></code></pre></div>
 <em>note</em> <code>result("dql_query_bizevents").records</code> is the same as <code>result("dql_query_bizevents")['records']</code></p>
 <p>Finally, we want this task to execute as a loop.  This works by providing a <code>List</code> which is an array/list of data you want to iterate over and perform the task for each element/index.  You can provide data from a previous task using a Jinja expression.  You can access element/index through the provided <code>Item variable name</code>, either from JS code or Jinja expression.  Additionally, you can specify loop concurrency to increase parallel operations.</p>
@@ -1052,17 +1052,17 @@ Description:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>item
 </span></code></pre></div></p>
 <p>Set the <code>List</code>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>{{ result(&quot;dql_query_bizevents&quot;).records }}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>{{ result("dql_query_bizevents").records }}
 </span></code></pre></div></p>
 <p><img alt="./img/02-loop-results-conditions-options.png" src="../img/02-loop-results-conditions-options.png" /></p>
 <p>The loop item is access in our JS code with the following snippet:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>// import the required package
-</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>import { actionExecution } from &#39;@dynatrace-sdk/automation-utils&#39;;
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>import { actionExecution } from '@dynatrace-sdk/automation-utils';
 </span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>// declare function
 </span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>export default async function ({ execution_id, action_execution_id }) {
 </span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>// get the loop item for the action execution
 </span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>const actionEx = await actionExecution(action_execution_id);
-</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>const record = actionEx.loopItem[&#39;item&#39;];
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>const record = actionEx.loopItem['item'];
 </span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>// we can now use the contents of record
 </span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>console.log(record); // for example
 </span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>// end function
