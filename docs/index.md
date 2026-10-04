@@ -1,3 +1,11 @@
+---
+description: 'Learn the building blocks of Dynatrace Workflows: parameters and task results, HTTP calls, loops over DQL results, the Credential Vault, and metric and event ingest with the Dynatrace SDK. Then trigger a workflow from a Davis problem event and send its context to Slack.'
+tags:
+  - classic
+  - workflows
+  - automation
+---
+
 
 --8<-- "snippets/dt-enablement.md"
 
